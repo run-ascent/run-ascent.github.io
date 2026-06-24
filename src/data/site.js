@@ -85,9 +85,25 @@ export const consistencyBoard = [
   { name: 'Nandana', days: '3 DAYS' },
 ];
 
-export const galleryPlaceholders = [
-  'Early light near campus',
-  'Post-run chai stop',
-  'Green road out of Vithura',
-  'Sunday regroup point',
+export const galleryItems = [
+  {
+    caption: 'Early light near campus',
+    alt: 'ASCENT runners gathering near campus in the early morning',
+    image: '',
+  },
+  {
+    caption: 'Post-run chai stop',
+    alt: 'ASCENT runners at a post-run chai stop',
+    image: '',
+  },
+  {
+    caption: 'Green road out of Vithura',
+    alt: 'A green road near Vithura used by ASCENT runners',
+    image: '',
+  },
+  {
+    caption: 'Sunday regroup point',
+    alt: 'ASCENT runners regrouping during a Sunday run',
+    image: '',
+  },
 ];
