@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   consistencyBoard,
   events,
-  galleryPlaceholders,
+  galleryItems,
   pulseStats,
   routes,
   siteConfig,
@@ -26,6 +26,12 @@ function Header() {
       </Link>
     </header>
   );
+}
+
+function assetPath(path) {
+  if (!path) return '';
+  if (/^https?:\/\//.test(path) || path.startsWith('/')) return path;
+  return `${import.meta.env.BASE_URL}${path}`;
 }
 
 function BottomCta() {
@@ -260,10 +266,14 @@ function JoinPage() {
           <h2>REAL ASCENT PHOTOS GO HERE</h2>
         </div>
         <div className="gallery-grid">
-          {galleryPlaceholders.map((item) => (
-            <figure key={item}>
-              <div aria-hidden="true" />
-              <figcaption>{item}</figcaption>
+          {galleryItems.map((item) => (
+            <figure key={item.caption}>
+              {item.image ? (
+                <img src={assetPath(item.image)} alt={item.alt} />
+              ) : (
+                <div aria-hidden="true" />
+              )}
+              <figcaption>{item.caption}</figcaption>
             </figure>
           ))}
         </div>
