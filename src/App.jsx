@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   consistencyBoard,
@@ -10,18 +10,35 @@ import {
 } from './data/site.js';
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="site-header" aria-label="Primary navigation">
-      <Link className="wordmark" to="/">
-        ASCENT
-      </Link>
-      <nav>
-        <Link to="/#runs">Runs</Link>
-        <NavLink to="/routes">Routes</NavLink>
-        <NavLink to="/pulse">Pulse</NavLink>
-        <NavLink to="/join">Join</NavLink>
+    <header className={`site-header ${isOpen ? 'menu-open' : ''}`} aria-label="Primary navigation">
+      <div className="header-bar">
+        <Link className="wordmark" to="/" onClick={() => setIsOpen(false)}>
+          ASCENT
+        </Link>
+        <div className="header-actions">
+          <Link className="nav-cta mobile-cta" to={siteConfig.links.sundayRun}>
+            Join Sunday
+          </Link>
+          <button 
+            className="menu-toggle" 
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? '✕' : '☰'}
+          </button>
+        </div>
+      </div>
+      <nav className={isOpen ? 'open' : ''}>
+        <Link to="/#runs" onClick={() => setIsOpen(false)}>Runs</Link>
+        <NavLink to="/routes" onClick={() => setIsOpen(false)}>Routes</NavLink>
+        <NavLink to="/pulse" onClick={() => setIsOpen(false)}>Pulse</NavLink>
+        <NavLink to="/join" onClick={() => setIsOpen(false)}>Join</NavLink>
       </nav>
-      <Link className="nav-cta" to={siteConfig.links.sundayRun}>
+      <Link className="nav-cta desktop-cta" to={siteConfig.links.sundayRun}>
         Join Sunday
       </Link>
     </header>
@@ -32,14 +49,6 @@ function assetPath(path) {
   if (!path) return '';
   if (/^https?:\/\//.test(path) || path.startsWith('/')) return path;
   return `${import.meta.env.BASE_URL}${path}`;
-}
-
-function BottomCta() {
-  return (
-    <Link className="bottom-cta" to={siteConfig.links.sundayRun}>
-      JOIN SUNDAY&apos;S RUN
-    </Link>
-  );
 }
 
 function ScrollToHash() {
@@ -145,7 +154,17 @@ function EventCards() {
             <p className="event-time">{event.when}</p>
             <h3>{event.title}</h3>
             <p>{event.description}</p>
-            <a href="/join">{event.action}</a>
+            {event.url ? (
+              event.url.startsWith('http') ? (
+                <a href={event.url} target="_blank" rel="noopener noreferrer">
+                  {event.action}
+                </a>
+              ) : (
+                <Link to={event.url}>{event.action}</Link>
+              )
+            ) : (
+              <Link to="/join">{event.action}</Link>
+            )}
           </article>
         ))}
       </div>
@@ -375,7 +394,6 @@ export default function App() {
       {path === '/join' ? <JoinPage /> : null}
       {!['/routes', '/pulse', '/join'].includes(path) ? <Home /> : null}
       <Footer />
-      <BottomCta />
     </>
   );
 }

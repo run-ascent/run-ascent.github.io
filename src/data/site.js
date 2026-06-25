@@ -20,18 +20,21 @@ export const events = [
     title: 'Sunday Ascent',
     description: 'Easy group run · All paces',
     action: 'Join this run',
+    url: 'https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==',
   },
   {
     when: 'WED / OPEN',
     title: 'Find a Run Buddy',
     description: 'Runs, rides, hikes via General Discussion',
     action: 'Ask the group',
+    url: 'https://www.strava.com/clubs/ascent-runners-club',
   },
   {
     when: 'APR 19 / 06:30',
     title: 'Reset Run',
     description: 'A low-pressure exam-season run',
     action: 'See route',
+    url: '/routes',
   },
 ];
 

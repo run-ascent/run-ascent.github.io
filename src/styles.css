@@ -71,6 +71,10 @@ p {
   font-size: 2rem;
 }
 
+.header-actions {
+  display: none;
+}
+
 .site-header nav {
   display: flex;
   gap: clamp(16px, 3vw, 34px);
@@ -149,7 +153,7 @@ dt,
 
 .hill {
   background: var(--green);
-  bottom: -9vw;
+  bottom: -20px;
   clip-path: polygon(0 65%, 14% 46%, 30% 58%, 46% 29%, 62% 49%, 77% 24%, 100% 52%, 100% 100%, 0 100%);
   height: clamp(250px, 42vh, 430px);
   left: 0;
@@ -160,7 +164,7 @@ dt,
 
 .hill-front {
   background: #0b100d;
-  bottom: -14vw;
+  bottom: -40px;
   clip-path: polygon(0 52%, 18% 38%, 33% 57%, 51% 33%, 67% 62%, 82% 44%, 100% 58%, 100% 100%, 0 100%);
   height: clamp(210px, 34vh, 360px);
   z-index: -2;
@@ -614,34 +618,81 @@ dd {
 
 @media (max-width: 820px) {
   .site-header {
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: #101512 !important; /* Solid forest background on mobile */
+    gap: 0;
+    padding: 16px 20px;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .mobile-cta {
+    display: inline-block !important;
+    border: 1px solid var(--orange);
+    color: var(--orange) !important;
+    padding: 8px 14px;
+    font-size: 0.72rem;
+    font-family: 'DM Mono', ui-monospace, monospace;
+    text-transform: uppercase;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    color: var(--paper);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
   }
 
   .site-header nav {
-    background: rgba(16, 21, 18, 0.96);
-    border-top: 1px solid var(--line-light);
-    bottom: 0;
+    display: none; /* Hidden by default on mobile */
+    background: #101512;
+    flex-direction: column;
     gap: 0;
-    grid-column: 1 / -1;
-    display: flex;
-    left: 0;
-    padding: 10px 14px 76px;
-    position: fixed;
-    right: 0;
+    width: 100%;
+    margin-top: 16px;
+    padding: 8px 0 0;
+    position: static;
+    border-top: 1px solid var(--line-light);
+  }
+
+  .site-header nav.open {
+    display: flex; /* Shown when menu is open */
   }
 
   .site-header nav a {
-    flex: 1;
-    text-align: center;
-    padding: 12px 0;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(243, 240, 232, 0.08);
+    width: 100%;
+    text-align: left;
   }
 
-  .nav-cta {
-    display: none;
+  .site-header nav a:last-child {
+    border-bottom: none;
+  }
+
+  .desktop-cta {
+    display: none !important;
   }
 
   .bottom-cta {
-    display: block;
+    display: none !important; /* Completely remove bottom cta */
   }
 
   .hero {
@@ -661,7 +712,7 @@ dd {
   }
 
   .ticker {
-    bottom: 146px; /* Lift above bottom nav menu & CTA */
+    bottom: 86px; /* Reset bottom since we don't have bottom nav anymore */
   }
 
   .campus-lines {
@@ -698,7 +749,7 @@ dd {
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
-    padding-bottom: 138px;
+    padding-bottom: 40px; /* Reduced since bottom cta is removed */
   }
 }
 
