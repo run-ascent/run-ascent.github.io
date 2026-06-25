@@ -21,7 +21,7 @@ function Header() {
         <NavLink to="/pulse">Pulse</NavLink>
         <NavLink to="/join">Join</NavLink>
       </nav>
-      <Link className="nav-cta" to="https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==">
+      <Link className="nav-cta" to={siteConfig.links.sundayRun}>
         Join Sunday
       </Link>
     </header>
@@ -36,7 +36,7 @@ function assetPath(path) {
 
 function BottomCta() {
   return (
-    <Link className="bottom-cta" to="https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==">
+    <Link className="bottom-cta" to={siteConfig.links.sundayRun}>
       JOIN SUNDAY&apos;S RUN
     </Link>
   );
@@ -82,7 +82,7 @@ function Hero() {
           race trainees, and the friends who show up before the day moves.
         </p>
         <div className="button-row">
-          <Link className="button primary" to="https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==">
+          <Link className="button primary" to={links.sundayRun}>
             JOIN THE NEXT RUN
           </Link>
           <a className="button ghost" href={links.strava}>
@@ -266,12 +266,18 @@ function JoinPage() {
         </article>
         <aside className="join-card">
           <h2>JOIN ASCENT</h2>
-          <p>Community links are placeholders. Replace them in src/data/site.js.</p>
-          <a className="button primary" href={siteConfig.links.whatsapp}>
-            WHATSAPP GROUP ↗
+          <p>Connect with our running community and stay updated on weekly routes and events.</p>
+          <a className="button primary" href={siteConfig.links.sundayRun}>
+            JOIN SUNDAY RUN ↗
           </a>
-          <a className="button ghost light" href={siteConfig.links.instagram}>
+          <a className="button ghost" href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">
             INSTAGRAM ↗
+          </a>
+          <a className="button ghost" href={siteConfig.links.strava} target="_blank" rel="noopener noreferrer">
+            STRAVA CLUB ↗
+          </a>
+          <a className="button ghost" href={siteConfig.links.email}>
+            EMAIL US ↗
           </a>
         </aside>
       </section>
@@ -320,12 +326,29 @@ function Home() {
 }
 
 function Footer() {
+  const { links } = siteConfig;
   return (
     <footer className="site-footer">
-      <Link className="wordmark" to="/">
-        ASCENT
-      </Link>
-      <p>Run. Rise. Repeat. All paces welcome around IISER TVM / Vithura.</p>
+      <div className="footer-brand">
+        <Link className="wordmark" to="/">
+          ASCENT
+        </Link>
+        <p>Run. Rise. Repeat. All paces welcome around IISER TVM / Vithura.</p>
+      </div>
+      <div className="footer-links">
+        <a href={links.sundayRun} target="_blank" rel="noopener noreferrer">
+          SUNDAY RUN
+        </a>
+        <a href={links.strava} target="_blank" rel="noopener noreferrer">
+          STRAVA
+        </a>
+        <a href={links.instagram} target="_blank" rel="noopener noreferrer">
+          INSTAGRAM
+        </a>
+        <a href={links.email}>
+          EMAIL
+        </a>
+      </div>
     </footer>
   );
 }
