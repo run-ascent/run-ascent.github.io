@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
+  consistencyBoard,
   events,
   galleryItems,
+  pulseStats,
   routes,
   siteConfig,
 } from './data/site.js';
@@ -172,7 +174,9 @@ function EventCards() {
 }
 
 function PulsePreview({ full = false }) {
-  const { pulseStats, consistencyBoard, isLive } = stravaCache;
+  const displayStats = stravaCache.isLive ? stravaCache.pulseStats : pulseStats;
+  const displayBoard = stravaCache.isLive ? stravaCache.consistencyBoard : consistencyBoard;
+  const isLive = stravaCache.isLive;
 
   return (
     <section className={full ? 'paper-section pulse-page' : 'paper-section pulse-preview'}>
@@ -186,7 +190,7 @@ function PulsePreview({ full = false }) {
         </p>
       </div>
       <div className="stat-grid">
-        {pulseStats.map((stat) => (
+        {displayStats.map((stat) => (
           <article className="stat-card" key={stat.label}>
             <strong>{stat.value}</strong>
             <span>{stat.label}</span>
@@ -199,7 +203,7 @@ function PulsePreview({ full = false }) {
           <p className="section-kicker">Consistency Board</p>
           <span>No pace pressure. Just progress.</span>
         </div>
-        {consistencyBoard.map((runner, index) => (
+        {displayBoard.map((runner, index) => (
           <div className="board-row" key={runner.name}>
             <span>{index + 1}</span>
             <strong>{runner.name}</strong>
