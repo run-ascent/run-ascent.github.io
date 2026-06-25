@@ -108,20 +108,6 @@ export const galleryItems = [
     image: '',
   },
 ];
-export const siteConfig = {
-  nextRun: {
-    label: 'NEXT ASCENT',
-    day: 'SUNDAY',
-    time: '06:30 AM',
-    place: 'SAME PLACE',
-    note: 'ALL PACES',
-  },
-  links: {
-    strava: 'https://www.strava.com/clubs/ascent-runners-club',
-    whatsapp: 'https://chat.whatsapp.com/',
-    instagram: 'https://www.instagram.com/runascent/',
-  },
-};
 
 export const events = [
   {
