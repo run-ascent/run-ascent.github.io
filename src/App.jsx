@@ -21,7 +21,7 @@ function Header() {
         <NavLink to="/pulse">Pulse</NavLink>
         <NavLink to="/join">Join</NavLink>
       </nav>
-      <Link className="nav-cta" to="/join">
+      <Link className="nav-cta" to="https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==">
         Join Sunday
       </Link>
     </header>
@@ -36,7 +36,7 @@ function assetPath(path) {
 
 function BottomCta() {
   return (
-    <Link className="bottom-cta" to="/join">
+    <Link className="bottom-cta" to="https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==">
       JOIN SUNDAY&apos;S RUN
     </Link>
   );
@@ -78,11 +78,11 @@ function Hero() {
         <h1 id="home-title">ASCENT</h1>
         <p className="tagline">RUN. RISE. REPEAT.</p>
         <p className="hero-subcopy">
-          Built around the hills of IISER TVM, for first-timers, walkers, joggers,
+          Built around the hills of Vithura - IISER TVM, for first-timers, walkers, joggers,
           race trainees, and the friends who show up before the day moves.
         </p>
         <div className="button-row">
-          <Link className="button primary" to="/join">
+          <Link className="button primary" to="https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==">
             JOIN THE NEXT RUN
           </Link>
           <a className="button ghost" href={links.strava}>
@@ -261,7 +261,7 @@ function JoinPage() {
             <li>Meet at 06:30 AM at the weekly start point shared in the group.</li>
             <li>Choose your distance on the day. Turning back early is normal.</li>
             <li>Walk breaks are welcome. So are complete beginners.</li>
-            <li>Bring water, visible clothing, and a little patience for the hills.</li>
+            <li>Bring water and a little patience for the hills.</li>
           </ul>
         </article>
         <aside className="join-card">
