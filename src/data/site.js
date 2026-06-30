@@ -47,8 +47,7 @@ export const routes = [
     surface: 'Campus road',
     start: 'Main gate',
     notes: 'Short, social, and easy to exit early.',
-    // mapUrl: 'https://www.strava.com/routes/xxxx',
-    // gpx: 'gpx/campus-warmup.gpx',
+    gpx: 'gpx/campus-warmup.gpx',
   },
   {
     name: 'Vithura Green Roll',
