@@ -249,6 +249,31 @@ function RouteLibrary() {
               </div>
             </dl>
             <p>{route.notes}</p>
+            {(route.mapUrl || route.gpx) && (
+              <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
+                {route.mapUrl && (
+                  <a 
+                    className="button ghost light" 
+                    href={route.mapUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.75rem' }}
+                  >
+                    VIEW ROUTE ↗
+                  </a>
+                )}
+                {route.gpx && (
+                  <a 
+                    className="button primary" 
+                    href={assetPath(route.gpx)} 
+                    download={`${route.name.toLowerCase().replace(/\s+/g, '-')}.gpx`}
+                    style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.75rem' }}
+                  >
+                    DOWNLOAD GPX ↗
+                  </a>
+                )}
+              </div>
+            )}
           </article>
         ))}
       </section>
