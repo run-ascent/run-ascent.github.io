@@ -68,6 +68,30 @@ export default function RouteVisualizer({ gpxPath, routeName, onLoadStats }) {
           parsedPoints.push({ lat, lon, ele, cumDistance });
         }
 
+        // Apply moving average smoothing filter to elevations to remove GPS noise/jitter
+        const n = parsedPoints.length;
+        let windowSize = 9;
+        if (n < 9) {
+          windowSize = Math.max(3, n % 2 === 0 ? n - 1 : n);
+        }
+        const halfWindow = Math.floor(windowSize / 2);
+        
+        const smoothedElevations = [];
+        for (let i = 0; i < n; i++) {
+          const start = Math.max(0, i - halfWindow);
+          const end = Math.min(n, i + halfWindow + 1);
+          let sum = 0;
+          for (let j = start; j < end; j++) {
+            sum += parsedPoints[j].ele;
+          }
+          smoothedElevations.push(sum / (end - start));
+        }
+
+        // Overwrite raw elevations with smoothed values for accurate gain and a clean chart
+        for (let i = 0; i < n; i++) {
+          parsedPoints[i].ele = smoothedElevations[i];
+        }
+
         setPoints(parsedPoints);
         setLoading(false);
 
