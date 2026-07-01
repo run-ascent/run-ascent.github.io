@@ -70,8 +70,8 @@ export default function RouteVisualizer({ gpxPath, routeName, onLoadStats }) {
 
         // Apply moving average smoothing filter to elevations to remove GPS noise/jitter
         const n = parsedPoints.length;
-        let windowSize = 9;
-        if (n < 9) {
+        let windowSize = 5;
+        if (n < 5) {
           windowSize = Math.max(3, n % 2 === 0 ? n - 1 : n);
         }
         const halfWindow = Math.floor(windowSize / 2);
