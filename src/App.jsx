@@ -293,6 +293,30 @@ function RouteLibrary() {
         copy="Routes are editable local data for now. Add GPX links, maps, photos, and safety notes as ASCENT grows."
       />
       <section className="paper-section route-grid" aria-label="Route library">
+        <div style={{
+          gridColumn: '1 / -1',
+          border: '1px solid var(--orange)',
+          background: 'rgba(240, 90, 40, 0.05)',
+          padding: '20px 24px',
+          marginBottom: '12px',
+          fontFamily: 'sans-serif',
+          lineHeight: '1.5'
+        }}>
+          <h3 style={{ 
+            margin: '0 0 8px 0', 
+            color: 'var(--orange)', 
+            fontSize: '0.82rem', 
+            letterSpacing: '0.08em', 
+            fontWeight: '700',
+            fontFamily: 'DM Mono, monospace'
+          }}>
+            ⚠️ SAFETY ADVISORY
+          </h3>
+          <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)' }}>
+            ASCENT routes wind through forest foothill zones. For your safety, <strong>running beyond the Jersey Farm area after sunset, or along any unlit roads, is strictly discouraged</strong>. Low visibility and active wildlife in these forest areas can compromise your safety. Always run with a buddy, wear reflective gear in low light, and stay alert.
+          </p>
+        </div>
+
         {routes.map((route) => (
           <RouteCard key={route.name} route={route} />
         ))}
@@ -318,6 +342,7 @@ function JoinPage() {
             <li>Choose your distance on the day. Turning back early is normal.</li>
             <li>Walk breaks are welcome. So are complete beginners.</li>
             <li>Bring water and a little patience for the hills.</li>
+            <li><strong>Safety first:</strong> Winding forest roads can be hazardous. Running beyond the Jersey Farm area after sunset, or on unlit roads, is strictly discouraged due to low visibility and active wildlife.</li>
           </ul>
         </article>
         <aside className="join-card">
