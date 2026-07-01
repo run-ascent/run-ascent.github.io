@@ -79,11 +79,6 @@ function Hero() {
       <div className="sun" aria-hidden="true" />
       <div className="hill hill-back" aria-hidden="true" />
       <div className="hill hill-front" aria-hidden="true" />
-      <div className="campus-lines" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
       <div className="hero-copy reveal">
         <p className="eyebrow">A student-led running community</p>
         <h1 id="home-title">ASCENT</h1>

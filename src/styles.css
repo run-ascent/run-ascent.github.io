@@ -170,25 +170,7 @@ dt,
   z-index: -2;
 }
 
-.campus-lines {
-  bottom: clamp(122px, 16vh, 170px);
-  display: flex;
-  gap: 9px;
-  left: clamp(20px, 6vw, 90px);
-  position: absolute;
-  z-index: -1;
-}
 
-.campus-lines span {
-  border: 1px solid rgba(243, 240, 232, 0.32);
-  display: block;
-  height: 26px;
-  width: clamp(44px, 7vw, 88px);
-}
-
-.campus-lines span:nth-child(2) {
-  height: 44px;
-}
 
 .hero-copy {
   max-width: 800px;
@@ -720,9 +702,6 @@ dd {
     bottom: 86px; /* Reset bottom since we don't have bottom nav anymore */
   }
 
-  .campus-lines {
-    display: none;
-  }
 
   .split-section,
   .event-grid,
