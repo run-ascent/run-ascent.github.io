@@ -18,7 +18,7 @@ function haversineDistance(coords1, coords2) {
   return R * c;
 }
 
-export default function RouteVisualizer({ gpxPath, routeName }) {
+export default function RouteVisualizer({ gpxPath, routeName, onLoadStats }) {
   const [points, setPoints] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -70,6 +70,19 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
 
         setPoints(parsedPoints);
         setLoading(false);
+
+        // Report stats to parent card
+        if (onLoadStats && parsedPoints.length > 0) {
+          const totalDistance = parsedPoints[parsedPoints.length - 1].cumDistance;
+          let totalGain = 0;
+          for (let i = 1; i < parsedPoints.length; i++) {
+            const diff = parsedPoints[i].ele - parsedPoints[i - 1].ele;
+            if (diff > 0.2) {
+              totalGain += diff;
+            }
+          }
+          onLoadStats({ distance: totalDistance, climb: totalGain });
+        }
       })
       .catch((err) => {
         console.error('GPX parsing error:', err);
@@ -196,6 +209,15 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
   const maxEle = Math.max(...elevations);
   const eleRange = maxEle - minEle || 1;
 
+  // Calculate cumulative elevation gain (climb)
+  let cumulativeGain = 0;
+  for (let i = 1; i < points.length; i++) {
+    const diff = points[i].ele - points[i - 1].ele;
+    if (diff > 0.2) {
+      cumulativeGain += diff;
+    }
+  }
+
   const chartWidth = 600;
   const chartHeight = 120;
   const paddingX = 0;
@@ -270,7 +292,7 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
             </div>
           ) : (
             <div>
-              <strong>Elevation Range:</strong> {Math.round(minEle)}m - {Math.round(maxEle)}m ({Math.round(eleRange)}m gain)
+              <strong>Elevation Range:</strong> {Math.round(minEle)}m - {Math.round(maxEle)}m ({Math.round(cumulativeGain)}m gain)
             </div>
           )}
         </div>

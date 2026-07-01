@@ -216,6 +216,74 @@ function PulsePreview({ full = false }) {
   );
 }
 
+function RouteCard({ route }) {
+  const [gpxStats, setGpxStats] = useState(null);
+
+  return (
+    <article className="route-card">
+      <div>
+        <p className="route-distance">
+          {gpxStats ? `${gpxStats.distance.toFixed(1)} KM` : route.distance}
+        </p>
+        <h2>{route.name}</h2>
+      </div>
+      <dl>
+        <div>
+          <dt>Climb</dt>
+          <dd>{gpxStats ? `${Math.round(gpxStats.climb)} M` : route.climb}</dd>
+        </div>
+        <div>
+          <dt>Effort</dt>
+          <dd>{route.effort}</dd>
+        </div>
+        <div>
+          <dt>Surface</dt>
+          <dd>{route.surface}</dd>
+        </div>
+        <div>
+          <dt>Start</dt>
+          <dd>{route.start}</dd>
+        </div>
+      </dl>
+      <p>{route.notes}</p>
+      
+      {route.gpx && (
+        <RouteVisualizer 
+          gpxPath={assetPath(route.gpx)} 
+          routeName={route.name} 
+          onLoadStats={setGpxStats}
+        />
+      )}
+
+      {(route.mapUrl || route.gpx) && (
+        <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
+          {route.mapUrl && (
+            <a 
+              className="button ghost light" 
+              href={route.mapUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.78rem' }}
+            >
+              VIEW ROUTE ↗
+            </a>
+          )}
+          {route.gpx && (
+            <a 
+              className="button primary" 
+              href={assetPath(route.gpx)} 
+              download={`${route.name.toLowerCase().replace(/\s+/g, '-')}.gpx`}
+              style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.78rem' }}
+            >
+              DOWNLOAD GPX ↗
+            </a>
+          )}
+        </div>
+      )}
+    </article>
+  );
+}
+
 function RouteLibrary() {
   return (
     <main className="page">
@@ -225,65 +293,9 @@ function RouteLibrary() {
         copy="Routes are editable local data for now. Add GPX links, maps, photos, and safety notes as ASCENT grows."
       />
       <section className="paper-section route-grid" aria-label="Route library">
-        {routes.map((route) => {
-          return (
-            <article className="route-card" key={route.name}>
-              <div>
-                <p className="route-distance">{route.distance}</p>
-                <h2>{route.name}</h2>
-              </div>
-              <dl>
-                <div>
-                  <dt>Climb</dt>
-                  <dd>{route.climb}</dd>
-                </div>
-                <div>
-                  <dt>Effort</dt>
-                  <dd>{route.effort}</dd>
-                </div>
-                <div>
-                  <dt>Surface</dt>
-                  <dd>{route.surface}</dd>
-                </div>
-                <div>
-                  <dt>Start</dt>
-                  <dd>{route.start}</dd>
-                </div>
-              </dl>
-              <p>{route.notes}</p>
-              
-              {route.gpx && (
-                <RouteVisualizer gpxPath={assetPath(route.gpx)} routeName={route.name} />
-              )}
-
-              {(route.mapUrl || route.gpx) && (
-                <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
-                  {route.mapUrl && (
-                    <a 
-                      className="button ghost light" 
-                      href={route.mapUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.78rem' }}
-                    >
-                      VIEW ROUTE ↗
-                    </a>
-                  )}
-                  {route.gpx && (
-                    <a 
-                      className="button primary" 
-                      href={assetPath(route.gpx)} 
-                      download={`${route.name.toLowerCase().replace(/\s+/g, '-')}.gpx`}
-                      style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.78rem' }}
-                    >
-                      DOWNLOAD GPX ↗
-                    </a>
-                  )}
-                </div>
-              )}
-            </article>
-          );
-        })}
+        {routes.map((route) => (
+          <RouteCard key={route.name} route={route} />
+        ))}
       </section>
     </main>
   );
