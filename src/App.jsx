@@ -421,8 +421,8 @@ function RouteLibrary() {
           </section>
       <section className="dark-section gallery-section">
         <div className="section-heading">
-          <p className="section-kicker">Photo placeholders</p>
-          <h2>REAL ASCENT PHOTOS GO HERE</h2>
+          <p className="section-kicker">Moments</p>
+          <h2>ASCENT IN MOTION</h2>
         </div>
         <div className="gallery-grid">
           {galleryItems.map((item) => (
