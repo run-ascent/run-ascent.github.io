@@ -9,6 +9,7 @@ import {
   siteConfig,
 } from './data/site.js';
 import stravaCache from './data/strava-cache.json';
+import RouteVisualizer from './components/RouteVisualizer.jsx';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -216,6 +217,8 @@ function PulsePreview({ full = false }) {
 }
 
 function RouteLibrary() {
+  const [activeMap, setActiveMap] = useState(null);
+
   return (
     <main className="page">
       <PageHero
@@ -224,32 +227,34 @@ function RouteLibrary() {
         copy="Routes are editable local data for now. Add GPX links, maps, photos, and safety notes as ASCENT grows."
       />
       <section className="paper-section route-grid" aria-label="Route library">
-        {routes.map((route) => (
-          <article className="route-card" key={route.name}>
-            <div>
-              <p className="route-distance">{route.distance}</p>
-              <h2>{route.name}</h2>
-            </div>
-            <dl>
+        {routes.map((route) => {
+          const isMapOpen = activeMap === route.name;
+
+          return (
+            <article className="route-card" key={route.name}>
               <div>
-                <dt>Climb</dt>
-                <dd>{route.climb}</dd>
+                <p className="route-distance">{route.distance}</p>
+                <h2>{route.name}</h2>
               </div>
-              <div>
-                <dt>Effort</dt>
-                <dd>{route.effort}</dd>
-              </div>
-              <div>
-                <dt>Surface</dt>
-                <dd>{route.surface}</dd>
-              </div>
-              <div>
-                <dt>Start</dt>
-                <dd>{route.start}</dd>
-              </div>
-            </dl>
-            <p>{route.notes}</p>
-            {(route.mapUrl || route.gpx) && (
+              <dl>
+                <div>
+                  <dt>Climb</dt>
+                  <dd>{route.climb}</dd>
+                </div>
+                <div>
+                  <dt>Effort</dt>
+                  <dd>{route.effort}</dd>
+                </div>
+                <div>
+                  <dt>Surface</dt>
+                  <dd>{route.surface}</dd>
+                </div>
+                <div>
+                  <dt>Start</dt>
+                  <dd>{route.start}</dd>
+                </div>
+              </dl>
+              <p>{route.notes}</p>
               <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
                 {route.mapUrl && (
                   <a 
@@ -263,19 +268,41 @@ function RouteLibrary() {
                   </a>
                 )}
                 {route.gpx && (
-                  <a 
-                    className="button primary" 
-                    href={assetPath(route.gpx)} 
-                    download={`${route.name.toLowerCase().replace(/\s+/g, '-')}.gpx`}
-                    style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.75rem' }}
-                  >
-                    DOWNLOAD GPX ↗
-                  </a>
+                  <>
+                    <button
+                      className="button ghost light"
+                      onClick={() => setActiveMap(isMapOpen ? null : route.name)}
+                      style={{ 
+                        flex: 1, 
+                        minWidth: '120px', 
+                        padding: '10px', 
+                        fontSize: '0.78rem', 
+                        cursor: 'pointer', 
+                        background: 'none', 
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {isMapOpen ? 'HIDE MAP ⬏' : 'SHOW MAP ↴'}
+                    </button>
+                    <a 
+                      className="button primary" 
+                      href={assetPath(route.gpx)} 
+                      download={`${route.name.toLowerCase().replace(/\s+/g, '-')}.gpx`}
+                      style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.78rem' }}
+                    >
+                      DOWNLOAD GPX ↗
+                    </a>
+                  </>
                 )}
               </div>
-            )}
-          </article>
-        ))}
+              {isMapOpen && route.gpx && (
+                <RouteVisualizer gpxPath={assetPath(route.gpx)} routeName={route.name} />
+              )}
+            </article>
+          );
+        })}
       </section>
     </main>
   );
