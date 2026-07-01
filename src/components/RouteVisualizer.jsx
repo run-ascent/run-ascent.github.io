@@ -136,11 +136,30 @@ export default function RouteVisualizer({ gpxPath, routeName, onLoadStats }) {
 
     mapInstanceRef.current = map;
 
-    // Load CartoDB Voyager tiles (light theme for maximum visibility)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    // Load CartoDB Voyager tiles (light theme map)
+    const mapLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
       subdomains: 'abcd',
       maxZoom: 20
+    });
+
+    // Load Esri World Imagery (high-resolution Satellite view)
+    const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+      maxZoom: 20
+    });
+
+    // Set default map layer
+    mapLayer.addTo(map);
+
+    // Setup base layer toggle control
+    const baseLayers = {
+      "Map View": mapLayer,
+      "Satellite View": satelliteLayer
+    };
+
+    L.control.layers(baseLayers, null, {
+      position: 'topright'
     }).addTo(map);
 
     // Draw route line
