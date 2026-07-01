@@ -291,6 +291,7 @@ function RouteLibrary() {
         kicker="Route library"
         title="BUILT ON HILLS. BUILT TOGETHER."
         copy="Routes are editable local data for now. Add GPX links, maps, photos, and safety notes as ASCENT grows."
+        type="routes"
       />
       <section className="paper-section route-grid" aria-label="Route library">
         <div style={{
@@ -332,6 +333,7 @@ function JoinPage() {
         kicker="First-run guide"
         title="START WHERE YOU ARE."
         copy="You do not need a watch, a plan, or a fast pace. Bring shoes, water, and enough curiosity to reach the start."
+        type="join"
       />
       <section className="paper-section join-layout">
         <article>
@@ -384,10 +386,47 @@ function JoinPage() {
   );
 }
 
-function PageHero({ kicker, title, copy }) {
+function PageHero({ kicker, title, copy, type }) {
   return (
     <section className="page-hero">
       <div className="sun small" aria-hidden="true" />
+      
+      {type === 'routes' && (
+        <svg width="340" height="240" viewBox="0 0 340 240" fill="none" style={{ position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)', opacity: 0.07, pointerEvents: 'none', zIndex: 1 }}>
+          <path d="M50,120 C80,40 180,30 260,80 C320,120 280,180 200,200 C120,220 30,170 50,120 Z" stroke="var(--orange)" strokeWidth="1.5" strokeDasharray="4 4" />
+          <path d="M80,120 C100,60 170,50 230,90 C270,120 240,160 180,180 C120,200 60,160 80,120 Z" stroke="var(--orange)" strokeWidth="1.5" />
+          <path d="M120,120 C130,90 160,80 190,105 C210,120 200,140 160,150 C120,160 110,140 120,120 Z" stroke="var(--orange)" strokeWidth="1.5" />
+          <path d="M20,210 Q80,180 150,120 T280,30" stroke="var(--orange)" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="280" cy="30" r="5" fill="var(--orange)" />
+          <circle cx="20" cy="210" r="5" fill="none" stroke="var(--orange)" strokeWidth="2" />
+        </svg>
+      )}
+
+      {type === 'pulse' && (
+        <svg width="340" height="200" viewBox="0 0 340 200" fill="none" style={{ position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)', opacity: 0.07, pointerEvents: 'none', zIndex: 1 }}>
+          <path d="M10,100 L80,100 L95,80 L105,130 L120,60 L135,110 L145,100 L200,100 L210,50 L220,140 L230,85 L240,100 L330,100" stroke="var(--orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <rect x="30" y="120" width="8" height="40" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="50" y="110" width="8" height="50" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="70" y="130" width="8" height="30" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="160" y="115" width="8" height="45" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="180" y="95" width="8" height="65" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="260" y="125" width="8" height="35" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="280" y="105" width="8" height="55" rx="2" fill="var(--orange)" opacity="0.4" />
+          <rect x="300" y="115" width="8" height="45" rx="2" fill="var(--orange)" opacity="0.4" />
+        </svg>
+      )}
+
+      {type === 'join' && (
+        <svg width="340" height="200" viewBox="0 0 340 200" fill="none" style={{ position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)', opacity: 0.07, pointerEvents: 'none', zIndex: 1 }}>
+          <path d="M30,180 C80,160 100,110 160,100 C220,90 240,50 300,30" stroke="var(--orange)" strokeWidth="3" strokeDasharray="6 4" strokeLinecap="round" />
+          <path d="M300,30 L300,20 M300,30 L300,40 M300,30 L290,30 M300,30 L310,30" stroke="var(--orange)" strokeWidth="2" />
+          <circle cx="30" cy="180" r="12" stroke="var(--orange)" strokeWidth="1" strokeDasharray="3 3" />
+          <circle cx="30" cy="180" r="24" stroke="var(--orange)" strokeWidth="1" strokeDasharray="3 3" />
+          <circle cx="160" cy="100" r="16" stroke="var(--orange)" strokeWidth="1" strokeDasharray="3 3" />
+          <path d="M10,130 Q70,90 140,140 T290,80" stroke="var(--orange)" strokeWidth="1" opacity="0.6" />
+        </svg>
+      )}
+
       <p className="section-kicker">{kicker}</p>
       <h1>{title}</h1>
       <p>{copy}</p>
@@ -449,6 +488,7 @@ export default function App() {
             kicker="Club pulse"
             title="NO SPEED TABLES. JUST SHOWING UP."
             copy="ASCENT celebrates consistency and collective distance first. Live Strava data can arrive later."
+            type="pulse"
           />
           <PulsePreview full />
         </main>
