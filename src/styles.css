@@ -443,7 +443,7 @@ dt,
   background: var(--forest);
   color: var(--paper);
   overflow: hidden;
-  padding: 160px clamp(20px, 5vw, 72px) 86px;
+  padding: clamp(100px, 12vw, 130px) clamp(20px, 5vw, 72px) clamp(50px, 6vw, 70px);
   position: relative;
 }
 
