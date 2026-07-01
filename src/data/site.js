@@ -30,9 +30,9 @@ export const events = [
     url: 'https://www.strava.com/clubs/ascent-runners-club',
   },
   {
-    when: 'APR 19 / 06:30',
-    title: 'Reset Run',
-    description: 'A low-pressure exam-season run',
+    when: 'MID-WEEK / 06:30 AM',
+    title: 'Recovery Run',
+    description: 'A relaxed mid-week group jog around the foothills.',
     action: 'See route',
     url: '/routes',
   },

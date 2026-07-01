@@ -506,7 +506,7 @@ dd {
 }
 
 .gallery-grid div {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 2;
   background:
     radial-gradient(circle at 70% 25%, var(--orange) 0 18%, transparent 19%),
     linear-gradient(150deg, transparent 0 42%, var(--green) 43% 58%, #0b100d 59%);
@@ -514,7 +514,7 @@ dd {
 }
 
 .gallery-grid img {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 2;
   border: 1px solid var(--line-light);
   display: block;
   height: auto;

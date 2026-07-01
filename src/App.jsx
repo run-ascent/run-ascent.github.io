@@ -38,6 +38,7 @@ function Header() {
         <Link to="/#runs" onClick={() => setIsOpen(false)}>Runs</Link>
         <NavLink to="/routes" onClick={() => setIsOpen(false)}>Routes</NavLink>
         <NavLink to="/pulse" onClick={() => setIsOpen(false)}>Pulse</NavLink>
+        <NavLink to="/stories" onClick={() => setIsOpen(false)}>Stories</NavLink>
         <NavLink to="/join" onClick={() => setIsOpen(false)}>Join</NavLink>
       </nav>
       <Link className="nav-cta desktop-cta" to={siteConfig.links.sundayRun}>
@@ -419,9 +420,73 @@ function RouteLibrary() {
               </a>
             </aside>
           </section>
-      <section className="dark-section gallery-section">
+      </section>
+    </main>
+  );
+}
+
+function StoriesPage() {
+  const [activeStory, setActiveStory] = useState(null);
+
+  const storiesList = [
+    {
+      id: 'vagamon',
+      category: 'RACE REPORT',
+      title: 'Tackling the Trails: Ascent at Vagamon Envirothon',
+      date: 'June 2026',
+      description: 'ASCENT members headed to the high altitudes of Vagamon to take on the rugged trails, misty hill contours, and tea garden paths at the DCSMAT Envirothon.',
+      content: (
+        <>
+          <p style={{ marginBottom: '12px' }}>Vagamon welcomed the ASCENT team with mist-laden climbs and temperatures hovering around 18°C. Taking place on the hills of DCSMAT, the trail route wound through muddy estate paths, loose gravel stretches, and steep rolling slopes.</p>
+          <p>Representing the club, our runners experienced the true nature of Western Ghats trail running. "The climbing was relentless, but the views of the valley through the fog kept us driving forward," shared one of the participants. The event marked a milestone for ASCENT, proving that our training around IISER TVM's steep perimeter prepares us for any mountain.</p>
+        </>
+      )
+    },
+    {
+      id: 'safety',
+      category: 'GUIDE',
+      title: 'IISER TVM Foothill Running: A Safety & Gear Manual',
+      date: 'May 2026',
+      description: "From steep elevation contours around Anamudi to spotting wild fauna on forest roads—here is our checklist for running safely in Vithura's tropical terrain.",
+      content: (
+        <>
+          <p style={{ marginBottom: '12px' }}>Running in the Vithura foothills offers incredible views but demands respect for the local ecosystem. Here is our community safety checklist:</p>
+          <ul style={{ paddingLeft: '20px', lineHeight: '1.8', listStyleType: 'square' }}>
+            <li><strong>Visibility is Key:</strong> Forest roads are narrow and frequently shadowed by dense canopy. Wear high-visibility, bright attire.</li>
+            <li><strong>Wildlife Awareness:</strong> The forest sectors surrounding the campus are rich in wildlife. Avoid running alone after dark, and stay alert (no noise-canceling headphones).</li>
+            <li><strong>Hydration & Humidity:</strong> The tropical climate means rapid fluid loss even on cool morning runs. Always carry a handheld flask for runs longer than 5K.</li>
+            <li><strong>Pacing Hills:</strong> IISER TVM's elevation climbs are best handled with a relaxed stride. Walk the steep slopes—it is factually more efficient.</li>
+          </ul>
+        </>
+      )
+    },
+    {
+      id: 'founding',
+      category: 'COMMUNITY',
+      title: 'Where It All Began: The Founding Story of ASCENT',
+      date: 'January 2026',
+      description: 'How a simple mid-week warmup run sparked a student-led community of 16+ active athletes moving and climbing the Western Ghats foothills together.',
+      content: (
+        <>
+          <p style={{ marginBottom: '12px' }}>What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 16+ runners.</p>
+          <p>ASCENT was founded on a simple realization: student life is busy, but showing up together makes consistent training effortless. By eliminating pace pressure and focusing entirely on collective distance and consistency, we have created a space where elite sprinters and beginner joggers run side-by-side. Our goal remains unchanged: keeping our community moving, one ascent at a time.</p>
+        </>
+      )
+    }
+  ];
+
+  return (
+    <main className="page">
+      <PageHero
+        kicker="Stories & Logs"
+        title="LENS ON THE RUN. LIFE ON THE TRAIL."
+        copy="Capturing the miles, moments, and trails of the ASCENT running community. Explore our photos and read logs of our running journeys."
+        type="stories"
+      />
+
+      <section className="paper-section" style={{ borderBottom: '1px solid var(--line-dark)' }}>
         <div className="section-heading">
-          <p className="section-kicker">Moments</p>
+          <p className="section-kicker">Gallery</p>
           <h2>ASCENT IN MOTION</h2>
         </div>
         <div className="gallery-grid">
@@ -432,9 +497,80 @@ function RouteLibrary() {
               ) : (
                 <div aria-hidden="true" />
               )}
-              <figcaption>{item.caption}</figcaption>
+              <figcaption style={{ fontSize: '0.78rem', color: 'rgba(16, 21, 18, 0.76)' }}>{item.caption}</figcaption>
             </figure>
           ))}
+        </div>
+      </section>
+
+      <section className="paper-section">
+        <div className="section-heading">
+          <p className="section-kicker">Logs & Blogs</p>
+          <h2>COMMUNITY STORIES</h2>
+        </div>
+        
+        <div style={{ maxWidth: 'var(--max)', margin: '0 auto', display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+          {storiesList.map((story) => {
+            const isOpen = activeStory === story.id;
+            return (
+              <article 
+                key={story.id} 
+                className="story-card"
+                style={{ 
+                  border: '1px solid var(--line-dark)', 
+                  padding: '24px', 
+                  borderRadius: '3px', 
+                  background: isOpen ? 'rgba(240, 90, 40, 0.02)' : 'transparent',
+                  transition: 'all 0.25s ease'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '0.68rem', fontFamily: 'DM Mono, monospace', color: 'var(--orange)', letterSpacing: '0.05em', fontWeight: 'bold' }}>{story.category}</span>
+                  <span style={{ fontSize: '0.68rem', fontFamily: 'DM Mono, monospace', color: 'var(--green)' }}>{story.date}</span>
+                </div>
+                <h3 style={{ fontSize: '1.25rem', margin: '0 0 10px 0', fontFamily: 'Impact, Bebas Neue, sans-serif', fontWeight: 'normal', color: 'var(--forest)', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+                  {story.title}
+                </h3>
+                <p style={{ fontSize: '0.88rem', margin: '0 0 16px 0', color: 'rgba(16, 21, 18, 0.8)', lineBreak: 'normal', lineHeight: '1.6' }}>
+                  {story.description}
+                </p>
+                
+                {isOpen && (
+                  <div style={{ 
+                    fontSize: '0.88rem', 
+                    marginTop: '16px', 
+                    paddingTop: '16px', 
+                    borderTop: '1px solid var(--line-dark)', 
+                    color: 'var(--forest)', 
+                    lineHeight: '1.6', 
+                    animation: 'reveal 0.3s ease-out' 
+                  }}>
+                    {story.content}
+                  </div>
+                )}
+                
+                <button 
+                  onClick={() => setActiveStory(isOpen ? null : story.id)}
+                  style={{ 
+                    background: 'none', 
+                    border: 'none', 
+                    color: 'var(--orange)', 
+                    fontFamily: 'DM Mono, monospace', 
+                    fontSize: '0.78rem', 
+                    cursor: 'pointer', 
+                    textTransform: 'uppercase', 
+                    padding: '8px 0 0 0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {isOpen ? 'Close log ↑' : 'Read log →'}
+                </button>
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>
@@ -479,6 +615,20 @@ function PageHero({ kicker, title, copy, type }) {
           <circle cx="30" cy="180" r="24" stroke="var(--orange)" strokeWidth="1" strokeDasharray="3 3" />
           <circle cx="160" cy="100" r="16" stroke="var(--orange)" strokeWidth="1" strokeDasharray="3 3" />
           <path d="M10,130 Q70,90 140,140 T290,80" stroke="var(--orange)" strokeWidth="1" opacity="0.6" />
+        </svg>
+      )}
+
+      {type === 'stories' && (
+        <svg width="340" height="200" viewBox="0 0 340 200" fill="none" style={{ position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)', opacity: 0.22, pointerEvents: 'none', zIndex: 1 }}>
+          <rect x="70" y="30" width="200" height="140" rx="10" stroke="var(--orange)" strokeWidth="2.5" />
+          <path d="M120,30 L130,15 L210,15 L220,30" stroke="var(--orange)" strokeWidth="2.5" strokeLinejoin="round" />
+          <circle cx="170" cy="100" r="45" stroke="var(--orange)" strokeWidth="2" />
+          <circle cx="170" cy="100" r="20" stroke="var(--orange)" strokeWidth="1.5" />
+          <circle cx="230" cy="60" r="8" fill="var(--orange)" />
+          <path d="M150,80 L190,80" stroke="var(--orange)" strokeWidth="1" />
+          <path d="M185,85 L185,125" stroke="var(--orange)" strokeWidth="1" />
+          <path d="M190,120 L150,120" stroke="var(--orange)" strokeWidth="1" />
+          <path d="M155,115 L155,75" stroke="var(--orange)" strokeWidth="1" />
         </svg>
       )}
 
@@ -549,7 +699,8 @@ export default function App() {
         </main>
       ) : null}
       {path === '/join' ? <JoinPage /> : null}
-      {!['/routes', '/pulse', '/join'].includes(path) ? <Home /> : null}
+      {path === '/stories' ? <StoriesPage /> : null}
+      {!['/routes', '/pulse', '/stories', '/join'].includes(path) ? <Home /> : null}
       <Footer />
     </>
   );
