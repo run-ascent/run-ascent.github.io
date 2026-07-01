@@ -202,64 +202,37 @@ function PulsePreview({ full = false }) {
           <span>Celebrating showing up, combined miles, and foothill climbs.</span>
         </div>
         
-        <div className="leaderboard-list" style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div className="leaderboard-list">
           {displayBoard.map((runner, index) => {
             const rankNum = runner.rank || index + 1;
             const isTop3 = rankNum <= 3;
             return (
               <div 
                 key={runner.name} 
-                className="leaderboard-row"
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'space-between', 
-                  padding: '14px 20px', 
-                  border: '1px solid var(--line-dark)', 
-                  background: isTop3 ? 'rgba(240, 90, 40, 0.03)' : 'rgba(16, 21, 18, 0.01)',
-                  borderRadius: '3px',
-                  flexWrap: 'wrap',
-                  gap: '12px'
-                }}
+                className={`leaderboard-row ${isTop3 ? 'top-3' : ''}`}
               >
                 {/* Left: Rank and Name */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                  <span style={{ 
-                    fontFamily: 'DM Mono, monospace', 
-                    fontSize: '0.85rem', 
-                    fontWeight: 'bold', 
-                    color: isTop3 ? 'var(--orange)' : 'var(--green)',
-                    width: '24px'
-                  }}>
-                    #{rankNum}
-                  </span>
-                  <strong style={{ fontSize: '0.92rem', color: 'var(--forest)' }}>
-                    {runner.name}
-                  </strong>
+                <div className="leaderboard-athlete">
+                  <span className="rank">#{rankNum}</span>
+                  <span className="name">{runner.name}</span>
                 </div>
 
                 {/* Right: Stats Badges */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                    <span style={{ fontSize: '0.62rem', fontFamily: 'DM Mono, monospace', color: 'var(--green)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Runs</span>
-                    <strong style={{ fontSize: '0.88rem', fontFamily: 'DM Mono, monospace', color: 'var(--forest)', fontWeight: 'bold' }}>
-                      {runner.runs || runner.days || '1'}
-                    </strong>
+                <div className="leaderboard-stats">
+                  <div className="leaderboard-stat-item">
+                    <span>Runs</span>
+                    <strong>{runner.runs || runner.days || '1'}</strong>
                   </div>
                   {runner.distance && (
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', borderLeft: '1px solid var(--line-dark)', paddingLeft: '16px' }}>
-                      <span style={{ fontSize: '0.62rem', fontFamily: 'DM Mono, monospace', color: 'var(--green)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Distance</span>
-                      <strong style={{ fontSize: '0.88rem', fontFamily: 'DM Mono, monospace', color: 'var(--forest)', fontWeight: 'bold' }}>
-                        {runner.distance}
-                      </strong>
+                    <div className="leaderboard-stat-item">
+                      <span>Distance</span>
+                      <strong>{runner.distance}</strong>
                     </div>
                   )}
                   {runner.elevation && (
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', borderLeft: '1px solid var(--line-dark)', paddingLeft: '16px' }}>
-                      <span style={{ fontSize: '0.62rem', fontFamily: 'DM Mono, monospace', color: 'var(--green)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Climb</span>
-                      <strong style={{ fontSize: '0.88rem', fontFamily: 'DM Mono, monospace', color: 'var(--orange)', fontWeight: 'bold' }}>
-                        {runner.elevation}
-                      </strong>
+                    <div className="leaderboard-stat-item climb">
+                      <span>Climb</span>
+                      <strong>{runner.elevation}</strong>
                     </div>
                   )}
                 </div>

@@ -769,3 +769,112 @@ dd {
 @media (max-width: 340px) {
   .strava-widget { width: 90%; margin-left: auto; margin-right: auto; }
 }
+
+/* Responsive Activity Board Leaderboard Styles */
+.leaderboard-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leaderboard-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  border: 1px solid var(--line-dark);
+  background: rgba(16, 21, 18, 0.01);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.leaderboard-row.top-3 {
+  background: rgba(240, 90, 40, 0.03);
+  border-color: rgba(240, 90, 40, 0.15);
+}
+
+.leaderboard-athlete {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.leaderboard-athlete .rank {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--green);
+  width: 24px;
+}
+
+.leaderboard-row.top-3 .leaderboard-athlete .rank {
+  color: var(--orange);
+}
+
+.leaderboard-athlete .name {
+  font-size: 0.92rem;
+  color: var(--forest);
+  font-weight: bold;
+}
+
+.leaderboard-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  justify-content: flex-start;
+  border-top: 1px solid rgba(16, 21, 18, 0.08);
+  padding-top: 12px;
+}
+
+.leaderboard-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.leaderboard-stat-item:not(:first-child) {
+  border-left: 1px solid var(--line-dark);
+  padding-left: 16px;
+}
+
+.leaderboard-stat-item span {
+  font-size: 0.62rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.leaderboard-stat-item strong {
+  font-size: 0.88rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--forest);
+  font-weight: bold;
+}
+
+.leaderboard-stat-item.climb strong {
+  color: var(--orange);
+}
+
+@media (min-width: 768px) {
+  .leaderboard-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .leaderboard-stats {
+    width: auto;
+    border-top: none;
+    padding-top: 0;
+    justify-content: flex-end;
+  }
+  
+  .leaderboard-stat-item {
+    align-items: flex-end;
+  }
+}
