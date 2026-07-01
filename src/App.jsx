@@ -420,8 +420,7 @@ function RouteLibrary() {
               </a>
             </aside>
           </section>
-      </section>
-    </main>
+        </main>
   );
 }
 
