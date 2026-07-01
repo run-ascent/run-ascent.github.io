@@ -217,8 +217,6 @@ function PulsePreview({ full = false }) {
 }
 
 function RouteLibrary() {
-  const [activeMap, setActiveMap] = useState(null);
-
   return (
     <main className="page">
       <PageHero
@@ -228,8 +226,6 @@ function RouteLibrary() {
       />
       <section className="paper-section route-grid" aria-label="Route library">
         {routes.map((route) => {
-          const isMapOpen = activeMap === route.name;
-
           return (
             <article className="route-card" key={route.name}>
               <div>
@@ -255,37 +251,25 @@ function RouteLibrary() {
                 </div>
               </dl>
               <p>{route.notes}</p>
-              <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
-                {route.mapUrl && (
-                  <a 
-                    className="button ghost light" 
-                    href={route.mapUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.75rem' }}
-                  >
-                    VIEW ROUTE ↗
-                  </a>
-                )}
-                {route.gpx && (
-                  <>
-                    <button
-                      className="button ghost light"
-                      onClick={() => setActiveMap(isMapOpen ? null : route.name)}
-                      style={{ 
-                        flex: 1, 
-                        minWidth: '120px', 
-                        padding: '10px', 
-                        fontSize: '0.78rem', 
-                        cursor: 'pointer', 
-                        background: 'none', 
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
+              
+              {route.gpx && (
+                <RouteVisualizer gpxPath={assetPath(route.gpx)} routeName={route.name} />
+              )}
+
+              {(route.mapUrl || route.gpx) && (
+                <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
+                  {route.mapUrl && (
+                    <a 
+                      className="button ghost light" 
+                      href={route.mapUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ flex: 1, minWidth: '120px', padding: '10px', fontSize: '0.78rem' }}
                     >
-                      {isMapOpen ? 'HIDE MAP ⬏' : 'SHOW MAP ↴'}
-                    </button>
+                      VIEW ROUTE ↗
+                    </a>
+                  )}
+                  {route.gpx && (
                     <a 
                       className="button primary" 
                       href={assetPath(route.gpx)} 
@@ -294,11 +278,8 @@ function RouteLibrary() {
                     >
                       DOWNLOAD GPX ↗
                     </a>
-                  </>
-                )}
-              </div>
-              {isMapOpen && route.gpx && (
-                <RouteVisualizer gpxPath={assetPath(route.gpx)} routeName={route.name} />
+                  )}
+                </div>
               )}
             </article>
           );

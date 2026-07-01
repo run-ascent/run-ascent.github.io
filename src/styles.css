@@ -785,37 +785,3 @@ dd {
 @media (max-width: 340px) {
   .strava-widget { width: 90%; margin-left: auto; margin-right: auto; }
 }
-
-/* Leaflet dark theme styling overrides */
-.leaflet-container {
-  background: var(--forest) !important;
-  font-family: inherit;
-}
-
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip {
-  background: var(--forest) !important;
-  color: var(--paper) !important;
-  border: 1px solid var(--line-light);
-  border-radius: 4px;
-}
-
-.leaflet-container a.leaflet-popup-close-button {
-  color: var(--paper) !important;
-}
-
-.leaflet-bar {
-  border: 1px solid var(--line-light) !important;
-  box-shadow: none !important;
-}
-
-.leaflet-bar a {
-  background-color: var(--forest) !important;
-  color: var(--paper) !important;
-  border-bottom: 1px solid var(--line-light) !important;
-}
-
-.leaflet-bar a:hover {
-  background-color: var(--green) !important;
-  color: var(--paper) !important;
-}

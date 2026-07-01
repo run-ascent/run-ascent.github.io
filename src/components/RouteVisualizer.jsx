@@ -99,8 +99,8 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
 
     mapInstanceRef.current = map;
 
-    // Load OpenStreetMap tiles
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    // Load CartoDB Voyager tiles (light theme for maximum visibility)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
       subdomains: 'abcd',
       maxZoom: 20
@@ -122,8 +122,8 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
 
     // Draw Start Marker (Green)
     L.circleMarker([startPoint.lat, startPoint.lon], {
-      color: '#66715e', // ASCENT Green
-      fillColor: '#f3f0e8', // ASCENT Paper
+      color: '#2b8a3e', // Bright Forest Green
+      fillColor: '#ffffff',
       fillOpacity: 1,
       radius: 6,
       weight: 3,
@@ -133,8 +133,8 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
 
     // Draw End Marker (Red)
     L.circleMarker([endPoint.lat, endPoint.lon], {
-      color: '#f05a28', // ASCENT Orange
-      fillColor: '#f3f0e8',
+      color: '#e03131', // Bright Red
+      fillColor: '#ffffff',
       fillOpacity: 1,
       radius: 6,
       weight: 3,
@@ -241,7 +241,7 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
           height: '280px', 
           width: '100%', 
           border: '1px solid var(--line-dark)',
-          background: 'var(--forest)',
+          background: '#e0e0e0',
           position: 'relative',
           zIndex: 5
         }} 
@@ -260,18 +260,24 @@ export default function RouteVisualizer({ gpxPath, routeName }) {
           marginBottom: 6,
           minHeight: '16px'
         }}>
-          <div>
-            <strong>Distance:</strong> {totalDistance.toFixed(2)} KM
-          </div>
           {hoverPoint ? (
-            <div style={{ color: 'var(--orange)' }}>
-              <span><strong>Dist:</strong> {hoverPoint.cumDistance.toFixed(2)} KM</span>
-              <span style={{ marginLeft: 12 }}><strong>Ele:</strong> {Math.round(hoverPoint.ele)} M</span>
-            </div>
+            <>
+              <div style={{ color: 'var(--orange)' }}>
+                <strong>Distance:</strong> {hoverPoint.cumDistance.toFixed(2)} KM
+              </div>
+              <div style={{ color: 'var(--orange)' }}>
+                <strong>Elevation:</strong> {Math.round(hoverPoint.ele)} M
+              </div>
+            </>
           ) : (
-            <div>
-              <strong>Elevation Range:</strong> {Math.round(minEle)}m - {Math.round(maxEle)}m ({Math.round(eleRange)}m gain)
-            </div>
+            <>
+              <div style={{ color: 'var(--green)', opacity: 0.8 }}>
+                <strong>Elevation Profile</strong>
+              </div>
+              <div style={{ color: 'var(--green)', opacity: 0.6 }}>
+                <em>Hover to trace route elevation</em>
+              </div>
+            </>
           )}
         </div>
 
