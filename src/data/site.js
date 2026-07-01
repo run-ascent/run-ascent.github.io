@@ -50,6 +50,16 @@ export const routes = [
     gpx: 'gpx/campus-warmup.gpx',
   },
   {
+    name: 'Indoor to Jersey Farm Run',
+    distance: '3.0 KM',
+    climb: '30 M',
+    effort: 'Easy / Recovery',
+    surface: 'Road',
+    start: 'Indoor Stadium',
+    notes: 'A scenic out-and-back route from the campus Indoor Stadium winding out to the nearby Jersey Farm. Excellent for recovery or light aerobic sessions.',
+    gpx: 'gpx/3k-indoor-to-jersey-farm.gpx',
+  },
+  {
     name: 'Bonacaud Checkpost Run',
     distance: '5.0 KM',
     climb: '110 M',
