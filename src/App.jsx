@@ -490,9 +490,7 @@ export default function App() {
             copy="ASCENT celebrates collective effort, showing up, and building strength together. Track our combined club stats, climbing milestones, and consistency board."
             type="pulse"
           />
-          <section className="paper-section" aria-label="Pulse details">
-            <PulsePreview full />
-          </section>
+          <PulsePreview full />
         </main>
       ) : null}
       {path === '/join' ? <JoinPage /> : null}
