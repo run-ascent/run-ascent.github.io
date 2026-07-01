@@ -321,114 +321,49 @@ function RouteLibrary() {
         {routes.map((route) => (
           <RouteCard key={route.name} route={route} />
         ))}
-
-        {/* How to Navigate Guide */}
-        <div style={{ 
-          gridColumn: '1 / -1', 
-          marginTop: '56px', 
-          borderTop: '1px solid var(--line-light)', 
-          paddingTop: '40px' 
-        }}>
-          <h2 style={{ fontFamily: 'sans-serif', letterSpacing: '-0.02em', fontSize: '1.75rem', marginBottom: '24px' }}>HOW TO NAVIGATE</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '32px' }}>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>1. DOWNLOAD THE GPX</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9 }}>Click the "Download GPX" button on any route card to download the standard route coordinate file to your computer or phone.</p>
-            </div>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>2. LOAD TO YOUR DEVICE</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9 }}>Upload the GPX file to your Garmin Connect, Coros, or Strava account, then sync it to your running watch for turn-by-turn routing.</p>
-            </div>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>3. FOLLOW THE TRAIL</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9 }}>Use the map view to stay on course. Since these runs wind through foothill zones, pre-loading the route prevents getting lost in low-service areas.</p>
-            </div>
-          </div>
-        </div>
       </section>
     </main>
   );
 }
 
-function JoinPage() {
-  return (
-    <main className="page">
-      <PageHero
-        kicker="First-run guide"
-        title="START WHERE YOU ARE."
-        copy="You do not need a watch, a plan, or a fast pace. Bring shoes, water, and enough curiosity to reach the start."
-        type="join"
-      />
-      <section className="paper-section join-layout">
-        <article style={{ display: 'flex', flexDirection: 'column' }}>
-          <div>
-            <p className="section-kicker">Before Sunday</p>
-            <h2>WHAT TO KNOW</h2>
-            <ul className="clean-list">
-              <li>Meet at 06:30 AM at the weekly start point shared in the group.</li>
-              <li>Choose your distance on the day. Turning back early is normal.</li>
-              <li>Walk breaks are welcome. So are complete beginners.</li>
-              <li>Bring water and a little patience for the hills.</li>
-              <li><strong>Safety first:</strong> Winding forest roads can be hazardous. Running beyond the Jersey Farm area after sunset, or on unlit roads, is strictly discouraged due to low visibility and active wildlife.</li>
-            </ul>
-          </div>
-
-          {/* What to Bring Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '40px', borderTop: '1px solid var(--line-light)', paddingTop: '32px' }}>
+    function JoinPage() {
+      return (
+        <main className="page">
+          <PageHero
+            kicker="First-run guide"
+            title="START WHERE YOU ARE."
+            copy="You do not need a watch, a plan, or a fast pace. Bring shoes, water, and enough curiosity to reach the start."
+            type="join"
+          />
+          <section className="paper-section join-layout">
             <article>
-              <h4 style={{ color: 'var(--orange)', fontFamily: 'DM Mono, monospace', fontSize: '0.85rem', margin: '0 0 8px 0' }}>01. RUNNING GEAR</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: '1.4' }}>Any comfortable running shoes and breathable clothing are perfect. Reflective elements are recommended if you run early or late.</p>
+              <p className="section-kicker">Before Sunday</p>
+              <h2>WHAT TO KNOW</h2>
+              <ul className="clean-list">
+                <li>Meet at 06:30 AM at the weekly start point shared in the group.</li>
+                <li>Choose your distance on the day. Turning back early is normal.</li>
+                <li>Walk breaks are welcome. So are complete beginners.</li>
+                <li>Bring water and a little patience for the hills.</li>
+                <li><strong>Safety first:</strong> Winding forest roads can be hazardous. Running beyond the Jersey Farm area after sunset, or on unlit roads, is strictly discouraged due to low visibility and active wildlife.</li>
+              </ul>
             </article>
-            <article>
-              <h4 style={{ color: 'var(--orange)', fontFamily: 'DM Mono, monospace', fontSize: '0.85rem', margin: '0 0 8px 0' }}>02. HYDRATION</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: '1.4' }}>The foothills get humid quickly. We recommend carrying a handheld water bottle or wearing a hydration vest for runs longer than 5K.</p>
-            </article>
-            <article>
-              <h4 style={{ color: 'var(--orange)', fontFamily: 'DM Mono, monospace', fontSize: '0.85rem', margin: '0 0 8px 0' }}>03. SUPPORTIVE SPIRIT</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: '1.4' }}>We run as a community. Encourage those around you, stay with your buddy, and always regroup at key intersections.</p>
-            </article>
-          </div>
-        </article>
-        <aside className="join-card">
-          <h2>JOIN ASCENT</h2>
-          <p>Connect with our running community and stay updated on weekly routes and events.</p>
-          <a className="button primary" href={siteConfig.links.sundayRun}>
-            JOIN SUNDAY RUN ↗
-          </a>
-          <a className="button ghost" href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">
-            INSTAGRAM ↗
-          </a>
-          <a className="button ghost" href={siteConfig.links.strava} target="_blank" rel="noopener noreferrer">
-            STRAVA CLUB ↗
-          </a>
-          <a className="button ghost" href={siteConfig.links.email}>
-            EMAIL US ↗
-          </a>
-        </aside>
-
-        {/* Frequently Asked Questions */}
-        <div style={{ gridColumn: '1 / -1', marginTop: '56px', borderTop: '1px solid var(--line-light)', paddingTop: '40px' }}>
-          <h2 style={{ fontFamily: 'sans-serif', letterSpacing: '-0.02em', fontSize: '1.75rem', marginBottom: '24px' }}>FREQUENTLY ASKED QUESTIONS</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>Q: DOES IT COST ANYTHING TO JOIN?</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9, lineHeight: '1.4' }}>No. ASCENT is a free, community-driven run club. There are no fees or subscriptions. Just show up and run.</p>
-            </div>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>Q: WHAT IF I AM TOO SLOW?</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9, lineHeight: '1.4' }}>No one is left behind. We have runners at all paces, and we regularly regroup. You can also run-walk or choose a shorter distance.</p>
-            </div>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>Q: CAN I RUN ON MY OWN DAYS?</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9, lineHeight: '1.4' }}>Yes! Join our Strava Club where members coordinate mid-week morning runs, track training, and share routes.</p>
-            </div>
-            <div>
-              <h4 style={{ margin: '0 0 8px 0', fontFamily: 'DM Mono, monospace', fontSize: '0.9rem', color: 'var(--green)' }}>Q: ARE THERE WATER STOPS?</h4>
-              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--forest)', opacity: 0.9, lineHeight: '1.4' }}>For Sunday runs, we coordinate routes with shared water drop points or stop at shops, but carrying your own bottle is always advised.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <aside className="join-card">
+              <h2>JOIN ASCENT</h2>
+              <p>Connect with our running community and stay updated on weekly routes and events.</p>
+              <a className="button primary" href={siteConfig.links.sundayRun}>
+                JOIN SUNDAY RUN ↗
+              </a>
+              <a className="button ghost" href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">
+                INSTAGRAM ↗
+              </a>
+              <a className="button ghost" href={siteConfig.links.strava} target="_blank" rel="noopener noreferrer">
+                STRAVA CLUB ↗
+              </a>
+              <a className="button ghost" href={siteConfig.links.email}>
+                EMAIL US ↗
+              </a>
+            </aside>
+          </section>
       <section className="dark-section gallery-section">
         <div className="section-heading">
           <p className="section-kicker">Photo placeholders</p>
@@ -557,36 +492,6 @@ export default function App() {
           />
           <section className="paper-section" aria-label="Pulse details">
             <PulsePreview full />
-
-            {/* Club Milestones Grid */}
-            <div style={{ marginTop: '56px', borderTop: '1px solid var(--line-light)', paddingTop: '40px' }}>
-              <h2 style={{ fontFamily: 'sans-serif', letterSpacing: '-0.02em', fontSize: '1.75rem', marginBottom: '24px' }}>CLUB MILESTONES</h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
-                <div style={{ border: '1px solid var(--line-dark)', padding: '20px', background: 'rgba(16, 21, 18, 0.02)' }}>
-                  <h3 style={{ margin: '0 0 4px 0', color: 'var(--orange)', fontSize: '1.5rem', fontFamily: 'DM Mono, monospace' }}>8,849 M</h3>
-                  <p style={{ margin: 0, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}><strong>Everest Altitude</strong></p>
-                  <p style={{ margin: '8px 0 0 0', fontSize: '0.82rem', lineHeight: '1.4' }}>Our collective vertical climbing has surpassed the height of Mount Everest multiple times over.</p>
-                </div>
-                <div style={{ border: '1px solid var(--line-dark)', padding: '20px', background: 'rgba(16, 21, 18, 0.02)' }}>
-                  <h3 style={{ margin: '0 0 4px 0', color: 'var(--orange)', fontSize: '1.5rem', fontFamily: 'DM Mono, monospace' }}>500+</h3>
-                  <p style={{ margin: 0, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}><strong>Total Runs</strong></p>
-                  <p style={{ margin: '8px 0 0 0', fontSize: '0.82rem', lineHeight: '1.4' }}>Total logged run activities across all members since the club started tracking collective progress.</p>
-                </div>
-                <div style={{ border: '1px solid var(--line-dark)', padding: '20px', background: 'rgba(16, 21, 18, 0.02)' }}>
-                  <h3 style={{ margin: '0 0 4px 0', color: 'var(--orange)', fontSize: '1.5rem', fontFamily: 'DM Mono, monospace' }}>100%</h3>
-                  <p style={{ margin: 0, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--green)' }}><strong>Pace Friendly</strong></p>
-                  <p style={{ margin: '8px 0 0 0', fontSize: '0.82rem', lineHeight: '1.4' }}>Consistency is our priority. Every step, whether walked, jogged, or sprinted, contributes to the pulse of ASCENT.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* How it Works Section */}
-            <div style={{ marginTop: '48px', borderTop: '1px solid var(--line-light)', paddingTop: '40px' }}>
-              <h2 style={{ fontFamily: 'sans-serif', letterSpacing: '-0.02em', fontSize: '1.75rem', marginBottom: '20px' }}>HOW THE PULSE WORKS</h2>
-              <p style={{ fontSize: '0.88rem', lineHeight: '1.6', color: 'var(--forest)', maxWidth: '800px', margin: 0 }}>
-                The Pulse is the live heartbeat of ASCENT. Statistics are calculated directly from members' public activities logged in our Strava Club. By sync-building the stats, we display the community's combined distance, climbers, and runs. To contribute your runs to the board, simply join the ASCENT run club on Strava!
-              </p>
-            </div>
           </section>
         </main>
       ) : null}
