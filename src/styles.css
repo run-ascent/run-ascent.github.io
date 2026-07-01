@@ -285,6 +285,11 @@ dt,
   padding: clamp(72px, 10vw, 130px) clamp(20px, 5vw, 72px);
 }
 
+.page-hero + .paper-section,
+.page-hero + .dark-section {
+  padding-top: clamp(32px, 4vw, 48px);
+}
+
 .paper-section {
   background: var(--paper);
   color: var(--forest);
@@ -443,7 +448,7 @@ dt,
   background: var(--forest);
   color: var(--paper);
   overflow: hidden;
-  padding: clamp(100px, 12vw, 130px) clamp(20px, 5vw, 72px) clamp(50px, 6vw, 70px);
+  padding: clamp(100px, 12vw, 130px) clamp(20px, 5vw, 72px) clamp(40px, 5vw, 56px);
   position: relative;
 }
 
