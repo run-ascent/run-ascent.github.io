@@ -258,7 +258,7 @@ function PulsePreview({ full = false }) {
         <p className="section-copy">
           {isLive 
             ? 'Club stats fetched live from Strava. Showing recent group activities and consistency rankings.'
-            : "Weekly leaderboard synced from our Strava Club activities. Join a closed, invite-only community of 57 runners."}
+            : "Weekly leaderboard synced from our Strava Club activities"}
         </p>
       </div>
       <div className="stat-grid">
