@@ -18,7 +18,8 @@ function Header() {
     <header className={`site-header ${isOpen ? 'menu-open' : ''}`} aria-label="Primary navigation">
       <div className="header-bar">
         <Link className="wordmark" to="/" onClick={() => setIsOpen(false)}>
-          ASCENT
+          <img src={assetPath('logo.png')} alt="ASCENT Logo" style={{ height: '32px', width: 'auto' }} />
+          <span>ASCENT</span>
         </Link>
         <div className="header-actions">
           <Link className="nav-cta mobile-cta" to={siteConfig.links.sundayRun}>
@@ -628,7 +629,8 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-brand">
         <Link className="wordmark" to="/">
-          ASCENT
+          <img src={assetPath('logo.png')} alt="ASCENT Logo" style={{ height: '32px', width: 'auto' }} />
+          <span>ASCENT</span>
         </Link>
         <p>Run. Rise. Repeat. All paces welcome around IISER TVM / Vithura.</p>
       </div>
