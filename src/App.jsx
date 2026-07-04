@@ -479,10 +479,10 @@ const storiesList = [
     date: 'June 2026',
     readTime: '3 MIN READ',
     author: {
-      name: 'Karan Singh',
-      role: 'Club Captain / Trail Lead',
+      name: 'Vaibhava',
+      role: 'Runner',
       avatarColor: 'var(--orange)',
-      initials: 'KS'
+      initials: 'KG'
     },
     image: 'images/Ascent-Vagamon-Envirothon.jpeg',
     description: 'ASCENT members headed to the high altitudes of Vagamon to take on the rugged trails, misty hill contours, and tea garden paths at the DCSMAT Envirothon.',
@@ -532,7 +532,7 @@ const storiesList = [
     date: 'January 2026',
     readTime: '3 MIN READ',
     author: {
-      name: 'Tushar Sharma',
+      name: 'Shrayansh',
       role: 'Community Founder',
       avatarColor: 'var(--forest)',
       initials: 'TS'
