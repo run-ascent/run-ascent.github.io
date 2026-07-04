@@ -480,6 +480,7 @@ function StoriesPage() {
       category: 'RACE REPORT',
       title: 'Tackling the Trails: Ascent at Vagamon Envirothon',
       date: 'June 2026',
+      readTime: '3 MIN READ',
       description: 'ASCENT members headed to the high altitudes of Vagamon to take on the rugged trails, misty hill contours, and tea garden paths at the DCSMAT Envirothon.',
       content: (
         <>
@@ -493,6 +494,7 @@ function StoriesPage() {
       category: 'GUIDE',
       title: 'IISER TVM Foothill Running: A Safety & Gear Manual',
       date: 'May 2026',
+      readTime: '4 MIN READ',
       description: "From steep elevation contours around Anamudi to spotting wild fauna on forest roads—here is our checklist for running safely in Vithura's tropical terrain.",
       content: (
         <>
@@ -511,10 +513,11 @@ function StoriesPage() {
       category: 'COMMUNITY',
       title: 'Where It All Began: The Founding Story of ASCENT',
       date: 'January 2026',
-      description: 'How a simple mid-week warmup run sparked a student-led community of 16+ active athletes moving and climbing the Western Ghats foothills together.',
+      readTime: '3 MIN READ',
+      description: 'How a simple mid-week warmup run sparked a student-led community of 57 active runners moving and climbing the Western Ghats foothills together.',
       content: (
         <>
-          <p style={{ marginBottom: '12px' }}>What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 16+ runners.</p>
+          <p style={{ marginBottom: '12px' }}>What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 57 runners.</p>
           <p>ASCENT was founded on a simple realization: student life is busy, but showing up together makes consistent training effortless. By eliminating pace pressure and focusing entirely on collective distance and consistency, we have created a space where elite sprinters and beginner joggers run side-by-side. Our goal remains unchanged: keeping our community moving, one ascent at a time.</p>
         </>
       )
@@ -555,23 +558,37 @@ function StoriesPage() {
           <h2>COMMUNITY STORIES</h2>
         </div>
         
-        <div style={{ maxWidth: 'var(--max)', margin: '0 auto', display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+        <div style={{ 
+          maxWidth: 'var(--max)', 
+          margin: '0 auto', 
+          display: 'grid', 
+          gap: '24px', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          alignItems: 'start'
+        }}>
           {storiesList.map((story) => {
             const isOpen = activeStory === story.id;
+            const isDimmed = activeStory && activeStory !== story.id;
             return (
               <article 
                 key={story.id} 
                 className="story-card"
                 style={{ 
-                  border: '1px solid var(--line-dark)', 
+                  border: isOpen ? '1px solid var(--orange)' : '1px solid var(--line-dark)', 
                   padding: '24px', 
                   borderRadius: '3px', 
                   background: isOpen ? 'rgba(240, 90, 40, 0.02)' : 'transparent',
-                  transition: 'all 0.25s ease'
+                  opacity: isDimmed ? 0.45 : 1,
+                  transform: isOpen ? 'scale(1.015)' : 'scale(1)',
+                  boxShadow: isOpen ? '0 8px 30px rgba(0,0,0,0.04)' : 'none',
+                  transition: 'all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '0.68rem', fontFamily: 'DM Mono, monospace', color: 'var(--orange)', letterSpacing: '0.05em', fontWeight: 'bold' }}>{story.category}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '0.68rem', fontFamily: 'DM Mono, monospace', color: 'var(--orange)', letterSpacing: '0.05em', fontWeight: 'bold' }}>{story.category}</span>
+                    <span style={{ fontSize: '0.62rem', fontFamily: 'DM Mono, monospace', color: 'rgba(16, 21, 18, 0.45)', background: 'rgba(16, 21, 18, 0.05)', padding: '2px 6px', borderRadius: '10px' }}>{story.readTime}</span>
+                  </div>
                   <span style={{ fontSize: '0.68rem', fontFamily: 'DM Mono, monospace', color: 'var(--green)' }}>{story.date}</span>
                 </div>
                 <h3 style={{ fontSize: '1.25rem', margin: '0 0 10px 0', fontFamily: 'Impact, Bebas Neue, sans-serif', fontWeight: 'normal', color: 'var(--forest)', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
@@ -605,7 +622,7 @@ function StoriesPage() {
                     fontSize: '0.78rem', 
                     cursor: 'pointer', 
                     textTransform: 'uppercase', 
-                    padding: '8px 0 0 0',
+                    padding: '12px 0 0 0',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '4px',
