@@ -452,7 +452,7 @@ function RouteLibrary() {
             </article>
             <aside className="join-card">
               <h2>JOIN ASCENT</h2>
-              <p>Connect with our invite-only community of 57 active runners and stay updated on weekly routes and events.</p>
+              <p>Connect with our community of active runners and stay updated on weekly routes and events.</p>
               <a className="button primary" href={siteConfig.links.sundayRun}>
                 JOIN SUNDAY RUN ↗
               </a>
