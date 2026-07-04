@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   consistencyBoard,
@@ -171,6 +171,79 @@ function EventCards() {
   );
 }
 
+function AnimatedCounter({ value }) {
+  const [displayValue, setDisplayValue] = useState('0');
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const elementRef = useRef(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+  
+  useEffect(() => {
+    if (!isIntersecting) return;
+    
+    const match = value.match(/([\d.,]+)(.*)/);
+    if (!match) {
+      setDisplayValue(value);
+      return;
+    }
+    
+    const rawNumberStr = match[1].replace(/,/g, '');
+    const suffix = match[2];
+    const targetNumber = parseFloat(rawNumberStr);
+    
+    if (isNaN(targetNumber)) {
+      setDisplayValue(value);
+      return;
+    }
+    
+    let start = 0;
+    const duration = 1200; // ms
+    const startTime = performance.now();
+    const isFloat = rawNumberStr.includes('.');
+    
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing outQuad
+      const easedProgress = progress * (2 - progress);
+      const current = start + easedProgress * (targetNumber - start);
+      
+      let formatted = '';
+      if (isFloat) {
+        formatted = current.toFixed(1);
+      } else {
+        formatted = Math.floor(current).toLocaleString();
+      }
+      
+      setDisplayValue(`${formatted}${suffix}`);
+      
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+    
+    requestAnimationFrame(update);
+  }, [value, isIntersecting]);
+
+  return <span ref={elementRef}>{displayValue}</span>;
+}
+
 function PulsePreview({ full = false }) {
   const displayStats = stravaCache.isLive ? stravaCache.pulseStats : pulseStats;
   const displayBoard = stravaCache.isLive ? stravaCache.consistencyBoard : consistencyBoard;
@@ -185,13 +258,13 @@ function PulsePreview({ full = false }) {
         <p className="section-copy">
           {isLive 
             ? 'Club stats fetched live from Strava. Showing recent group activities and consistency rankings.'
-            : "Weekly leaderboard synced from our Strava Club activities."}
+            : "Weekly leaderboard synced from our Strava Club activities. Join a closed, invite-only community of 57 runners."}
         </p>
       </div>
       <div className="stat-grid">
         {displayStats.map((stat) => (
           <article className="stat-card" key={stat.label}>
-            <strong>{stat.value}</strong>
+            <strong><AnimatedCounter value={stat.value} /></strong>
             <span>{stat.label}</span>
           </article>
         ))}
@@ -379,7 +452,7 @@ function RouteLibrary() {
             </article>
             <aside className="join-card">
               <h2>JOIN ASCENT</h2>
-              <p>Connect with our running community and stay updated on weekly routes and events.</p>
+              <p>Connect with our invite-only community of 57 active runners and stay updated on weekly routes and events.</p>
               <a className="button primary" href={siteConfig.links.sundayRun}>
                 JOIN SUNDAY RUN ↗
               </a>

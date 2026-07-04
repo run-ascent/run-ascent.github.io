@@ -82,28 +82,20 @@ export const routes = [
 ];
 
 export const pulseStats = [
-  { value: '16', label: 'Active Athletes' },
-  { value: '232.7 KM', label: 'Moved Together' },
-  { value: '2,148 M', label: 'Climbed' },
+  { value: '57', label: 'Club Runners' },
+  { value: '118.4 KM', label: 'Moved Together' },
+  { value: '991 M', label: 'Climbed' },
 ];
 
 export const consistencyBoard = [
-  { rank: 1, name: 'Karan Singh', distance: '113.2 km', runs: 26, longest: '22.3 km', pace: '4:35 /km', elevation: '922 m' },
-  { rank: 2, name: 'Shrayansh Tiwari', distance: '42.6 km', runs: 12, longest: '6.0 km', pace: '6:12 /km', elevation: '469 m' },
-  { rank: 3, name: 'Rudra Patel', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '5:35 /km', elevation: '86 m' },
-  { rank: 4, name: 'Preetam Badagi', distance: '8.7 km', runs: 3, longest: '5.2 km', pace: '5:53 /km', elevation: '39 m' },
-  { rank: 5, name: 'Kushal Agrawal', distance: '7.0 km', runs: 2, longest: '5.0 km', pace: '5:38 /km', elevation: '59 m' },
-  { rank: 6, name: 'Priyanshu Tiwari', distance: '6.4 km', runs: 3, longest: '4.5 km', pace: '6:46 /km', elevation: '95 m' },
-  { rank: 7, name: 'Sanjay B', distance: '5.4 km', runs: 1, longest: '5.4 km', pace: '8:31 /km', elevation: '41 m' },
-  { rank: 8, name: 'Adrija Misra', distance: '5.2 km', runs: 1, longest: '5.2 km', pace: '8:17 /km', elevation: '65 m' },
-  { rank: 9, name: 'Abhinav Joshy', distance: '5.2 km', runs: 2, longest: '4.6 km', pace: '5:57 /km', elevation: '62 m' },
-  { rank: 10, name: 'Ashish .', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '5:16 /km', elevation: '57 m' },
-  { rank: 11, name: 'Ayush Singh', distance: '5.0 km', runs: 2, longest: '4.5 km', pace: '6:56 /km', elevation: '54 m' },
-  { rank: 12, name: 'A.R.M .', distance: '4.7 km', runs: 3, longest: '2.0 km', pace: '3:42 /km', elevation: '61 m' },
-  { rank: 13, name: 'Vaibhava KG', distance: '4.2 km', runs: 5, longest: '3.0 km', pace: '6:18 /km', elevation: '21 m' },
-  { rank: 14, name: 'BHUVI 027', distance: '4.0 km', runs: 1, longest: '4.0 km', pace: '5:56 /km', elevation: '36 m' },
-  { rank: 15, name: 'Gowri Vinod', distance: '3.1 km', runs: 1, longest: '3.1 km', pace: '7:55 /km', elevation: '38 m' },
-  { rank: 16, name: 'Naman Agarwal', distance: '3.0 km', runs: 1, longest: '3.0 km', pace: '5:36 /km', elevation: '43 m' }
+  { rank: 1, name: 'Karan Singh', distance: '73.9 km', runs: 19, longest: '20.0 km', pace: '4:24 /km', elevation: '738 m' },
+  { rank: 2, name: 'Sanjay B', distance: '10.4 km', runs: 2, longest: '6.0 km', pace: '7:19 /km', elevation: '107 m' },
+  { rank: 3, name: 'Riju Yo', distance: '10.2 km', runs: 2, longest: '5.2 km', pace: '8:30 /km', elevation: '2 m' },
+  { rank: 4, name: 'Priyanshu Tiwari', distance: '7.0 km', runs: 1, longest: '7.0 km', pace: '8:55 /km', elevation: '14 m' },
+  { rank: 5, name: 'Rudra Patel', distance: '6.0 km', runs: 1, longest: '6.0 km', pace: '5:07 /km', elevation: '38 m' },
+  { rank: 6, name: 'Adrija Misra', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '8:25 /km', elevation: '23 m' },
+  { rank: 7, name: 'Anzil Muhammed K', distance: '4.0 km', runs: 1, longest: '4.0 km', pace: '5:24 /km', elevation: '40 m' },
+  { rank: 8, name: 'Tushar Sharma', distance: '1.9 km', runs: 1, longest: '1.9 km', pace: '6:35 /km', elevation: '29 m' }
 ];
 
 export const galleryItems = [
