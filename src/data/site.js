@@ -4,7 +4,7 @@ export const siteConfig = {
     day: 'SUNDAY',
     time: '06:30 AM',
     place: 'SAME PLACE',
-    note: 'ALL PACES',
+    note: 'JUST SHOW UP',
   },
   links: {
     strava: 'https://www.strava.com/clubs/ascent-runners-club',
@@ -18,7 +18,7 @@ export const events = [
   {
     when: 'SUN / 06:30',
     title: 'Sunday Ascent',
-    description: 'Easy group run · All paces',
+    description: 'Easy group run · Run, walk, or jog',
     action: 'Join this run',
     url: 'https://www.strava.com/clubs/1914011/group_events/3505155653881192768/occurrences/FQIWgIXTgOCf6KRhHBTUHxQMFDgUDBQAFAAAHBaA3ZC64WcAAA==',
   },

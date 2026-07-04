@@ -130,7 +130,7 @@ function Invitation() {
         <div className="reassurance-grid">
           <article>No experience needed</article>
           <article>No fixed distance</article>
-          <article>All paces welcome</article>
+          <article>Zero pace pressure</article>
         </div>
         <Link className="text-link" to="/join">
           YOUR FIRST RUN →
@@ -705,7 +705,7 @@ function Footer() {
           <img src={assetPath('logo.png')} alt="ASCENT Logo" style={{ height: '32px', width: 'auto' }} />
           <span>ASCENT</span>
         </Link>
-        <p>Run. Rise. Repeat. All paces welcome around IISER TVM / Vithura.</p>
+        <p>Run. Rise. Repeat. Keeping our community moving around IISER TVM / Vithura.</p>
       </div>
       <div className="footer-links">
         <a href={links.sundayRun} target="_blank" rel="noopener noreferrer">
