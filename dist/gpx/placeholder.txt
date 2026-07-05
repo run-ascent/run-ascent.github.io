@@ -1,0 +1,4 @@
+Save your downloadable run route GPX files in this directory.
+For example: public/gpx/campus-warmup.gpx
+Then configure them in src/data/site.js using the property:
+gpx: 'gpx/campus-warmup.gpx'

@@ -7,7 +7,9 @@ import {
   pulseStats,
   routes,
   siteConfig,
-} from './data/site.js';
+  storiesList,
+  eventGalleries
+} from './data/site.jsx';
 import stravaCache from './data/strava-cache.json';
 import RouteVisualizer from './components/RouteVisualizer.jsx';
 
@@ -471,85 +473,84 @@ function RouteLibrary() {
   );
 }
 
-const storiesList = [
-  {
-    id: 'vagamon',
-    category: 'RACE REPORT',
-    title: 'Tackling the Trails: Ascent at Vagamon Envirothon',
-    date: 'June 2026',
-    readTime: '3 MIN READ',
-    author: {
-      name: 'Vaibhava',
-      role: 'Runner',
-      avatarColor: 'var(--orange)',
-      initials: 'KG'
-    },
-    image: 'images/Ascent-Vagamon-Envirothon.jpeg',
-    description: 'ASCENT members headed to the high altitudes of Vagamon to take on the rugged trails, misty hill contours, and tea garden paths at the DCSMAT Envirothon.',
-    content: (
-      <>
-        <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          Vagamon welcomed the ASCENT team with mist-laden climbs and temperatures hovering around 18°C. Taking place on the hills of DCSMAT, the trail route wound through muddy estate paths, loose gravel stretches, and steep rolling slopes.
-        </p>
-        <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          Representing the club, our runners experienced the true nature of Western Ghats trail running. "The climbing was relentless, but the views of the valley through the fog kept us driving forward," shared one of the participants. The event marked a milestone for ASCENT, proving that our training around IISER TVM's steep perimeter prepares us for any mountain.
-        </p>
-      </>
-    )
-  },
-  {
-    id: 'safety',
-    category: 'GUIDE',
-    title: 'IISER TVM Foothill Running: A Safety & Gear Manual',
-    date: 'May 2026',
-    readTime: '4 MIN READ',
-    author: {
-      name: 'Shrayansh Tiwari',
-      role: 'Route Coordinator',
-      avatarColor: 'var(--green)',
-      initials: 'ST'
-    },
-    image: 'images/Scenic-Vithura-Roads.jpeg',
-    description: "From steep elevation contours around Anamudi to spotting wild fauna on forest roads—here is our checklist for running safely in Vithura's tropical terrain.",
-    content: (
-      <>
-        <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          Running in the Vithura foothills offers incredible views but demands respect for the local ecosystem. Here is our community safety checklist:
-        </p>
-        <ul style={{ paddingLeft: '20px', marginBottom: '16px', lineHeight: '1.8', listStyleType: 'square', fontSize: '1.05rem' }}>
-          <li style={{ marginBottom: '10px' }}><strong>Visibility is Key:</strong> Forest roads are narrow and frequently shadowed by dense canopy. Wear high-visibility, bright attire.</li>
-          <li style={{ marginBottom: '10px' }}><strong>Wildlife Awareness:</strong> The forest sectors surrounding the campus are rich in wildlife. Avoid running alone after dark, and stay alert (no noise-canceling headphones).</li>
-          <li style={{ marginBottom: '10px' }}><strong>Hydration & Humidity:</strong> The tropical climate means rapid fluid loss even on cool morning runs. Always carry a handheld flask for runs longer than 5K.</li>
-          <li style={{ marginBottom: '10px' }}><strong>Pacing Hills:</strong> IISER TVM's elevation climbs are best handled with a relaxed stride. Walk the steep slopes—it is factually more efficient.</li>
-        </ul>
-      </>
-    )
-  },
-  {
-    id: 'founding',
-    category: 'COMMUNITY',
-    title: 'Where It All Began: The Founding Story of ASCENT',
-    date: 'January 2026',
-    readTime: '3 MIN READ',
-    author: {
-      name: 'Shrayansh',
-      role: 'Community Founder',
-      avatarColor: 'var(--forest)',
-      initials: 'TS'
-    },
-    image: 'images/First-Ascent.jpeg',
-    description: 'How a simple mid-week warmup run sparked a student-led community of 57 active runners moving and climbing the Western Ghats foothills together.',
-    content: (
-      <>
-        <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 57 runners.
-        </p>
-        <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          ASCENT was founded on a simple realization: student life is busy, but showing up together makes consistent training effortless. By eliminating pace pressure and focusing entirely on collective distance and consistency, we have created a space where elite sprinters and beginner joggers run side-by-side. Our goal remains unchanged: keeping our community moving, one ascent at a time.</p>
-      </>
-    )
+function EventGalleryPage({ id }) {
+  const gallery = eventGalleries.find((g) => g.id === id);
+  
+  if (!gallery) {
+    return (
+      <main className="page" style={{ padding: '120px 24px', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: 'Bebas Neue, Impact, sans-serif', fontSize: '2rem', color: 'var(--forest)' }}>Gallery not found</h2>
+        <Link className="button primary" to="/stories" style={{ marginTop: '20px' }}>BACK TO STORIES</Link>
+      </main>
+    );
   }
-];
+
+  const relatedStory = storiesList.find(s => s.id === gallery.storyId);
+
+  return (
+    <main className="page">
+      <section className="paper-section" style={{ paddingBottom: '0', borderBottom: 'none' }}>
+        <div style={{ maxWidth: 'var(--max)', margin: '0 auto' }}>
+          <Link to="/stories" style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            fontFamily: 'DM Mono, monospace', 
+            fontSize: '0.85rem', 
+            color: 'var(--orange)', 
+            textDecoration: 'none',
+            fontWeight: 'bold'
+          }}>
+            ← BACK TO STORIES
+          </Link>
+        </div>
+      </section>
+
+      <section className="paper-section">
+        <div className="section-heading" style={{ marginBottom: '40px' }}>
+          <p className="section-kicker">{gallery.date}</p>
+          <h2>{gallery.title}</h2>
+        </div>
+
+        <div className="gallery-grid">
+          {gallery.images.map((img, idx) => (
+            <figure key={idx}>
+              <img src={assetPath(img)} alt={`${gallery.title} - Image ${idx + 1}`} />
+            </figure>
+          ))}
+        </div>
+
+        {relatedStory && (
+          <div style={{ 
+            marginTop: '60px', 
+            padding: '32px', 
+            border: '1px solid var(--line-dark)', 
+            borderRadius: '4px',
+            background: 'var(--paper)',
+            textAlign: 'center'
+          }}>
+            <p className="section-kicker" style={{ marginBottom: '12px' }}>Related Story</p>
+            <h3 style={{ 
+              fontSize: '1.5rem', 
+              fontFamily: 'Bebas Neue, Impact, sans-serif', 
+              color: 'var(--forest)', 
+              marginBottom: '16px',
+              letterSpacing: '0.02em'
+            }}>
+              {relatedStory.title}
+            </h3>
+            <p style={{ color: 'rgba(16, 21, 18, 0.75)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px auto', lineHeight: '1.6' }}>
+              {relatedStory.description}
+            </p>
+            <Link className="button primary" to={`/stories/${relatedStory.id}`}>
+              READ FULL STORY →
+            </Link>
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
 
 function StoriesPage() {
   return (
@@ -566,16 +567,41 @@ function StoriesPage() {
           <p className="section-kicker">Gallery</p>
           <h2>ASCENT IN MOTION</h2>
         </div>
-        <div className="gallery-grid">
-          {galleryItems.map((item) => (
-            <figure key={item.caption}>
-              {item.image ? (
-                <img src={assetPath(item.image)} alt={item.alt} />
-              ) : (
-                <div aria-hidden="true" />
-              )}
-              <figcaption style={{ fontSize: '0.78rem', color: 'rgba(16, 21, 18, 0.76)' }}>{item.caption}</figcaption>
-            </figure>
+        <div className="event-galleries-grid" style={{
+          display: 'grid',
+          gap: '24px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
+        }}>
+          {eventGalleries.map((gallery) => (
+            <Link 
+              to={`/gallery/${gallery.id}`} 
+              key={gallery.id}
+              className="gallery-event-card"
+              style={{
+                display: 'block',
+                textDecoration: 'none',
+                border: '1px solid var(--line-dark)',
+                borderRadius: '4px',
+                overflow: 'hidden',
+                background: 'var(--paper)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+              }}
+            >
+              <div style={{ aspectRatio: '3/2', overflow: 'hidden' }}>
+                <img 
+                  src={assetPath(gallery.coverImage)} 
+                  alt={gallery.title} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  className="gallery-card-img"
+                />
+              </div>
+              <div style={{ padding: '20px' }}>
+                <span style={{ fontSize: '0.68rem', fontFamily: 'DM Mono, monospace', color: 'var(--orange)', fontWeight: 'bold' }}>{gallery.date}</span>
+                <h3 style={{ fontSize: '1.25rem', margin: '8px 0 0 0', fontFamily: 'Impact, Bebas Neue, sans-serif', fontWeight: 'normal', color: 'var(--forest)', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+                  {gallery.title}
+                </h3>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -787,6 +813,33 @@ function BlogPostPage({ id }) {
             {story.content}
           </div>
 
+          {/* Related Gallery Link */}
+          {story.galleryId && (
+            <div style={{ 
+              marginTop: '40px', 
+              padding: '24px', 
+              background: 'rgba(240, 90, 40, 0.03)', 
+              borderLeft: '4px solid var(--orange)',
+              borderRadius: '0 4px 4px 0'
+            }}>
+              <h4 style={{ 
+                fontFamily: 'DM Mono, monospace', 
+                fontSize: '0.85rem', 
+                color: 'var(--orange)', 
+                marginBottom: '8px',
+                fontWeight: 'bold'
+              }}>
+                EVENT GALLERY
+              </h4>
+              <p style={{ color: 'rgba(16, 21, 18, 0.8)', marginBottom: '16px', fontSize: '0.95rem' }}>
+                View the photos from this event in our dedicated gallery.
+              </p>
+              <Link className="button ghost" to={`/gallery/${story.galleryId}`}>
+                VIEW EVENT GALLERY →
+              </Link>
+            </div>
+          )}
+
           {/* Bottom Back Button */}
           <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid var(--line-dark)', textAlign: 'center' }}>
             <Link className="button ghost" to="/stories" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
@@ -908,6 +961,9 @@ export default function App() {
   const isStoriesSubpage = path.startsWith('/stories/');
   const storiesSubpageId = isStoriesSubpage ? path.replace('/stories/', '') : null;
 
+  const isGallerySubpage = path.startsWith('/gallery/');
+  const gallerySubpageId = isGallerySubpage ? path.replace('/gallery/', '') : null;
+
   return (
     <>
       <ScrollToHash />
@@ -927,7 +983,8 @@ export default function App() {
       {path === '/join' ? <JoinPage /> : null}
       {path === '/stories' ? <StoriesPage /> : null}
       {isStoriesSubpage ? <BlogPostPage id={storiesSubpageId} /> : null}
-      {!['/routes', '/pulse', '/stories', '/join'].includes(path) && !isStoriesSubpage ? <Home /> : null}
+      {isGallerySubpage ? <EventGalleryPage id={gallerySubpageId} /> : null}
+      {!['/routes', '/pulse', '/stories', '/join'].includes(path) && !isStoriesSubpage && !isGallerySubpage ? <Home /> : null}
       <Footer />
     </>
   );

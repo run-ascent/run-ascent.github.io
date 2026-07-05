@@ -881,3 +881,14 @@ dd {
     align-items: flex-end;
   }
 }
+
+/* Gallery Event Cards Hover Effects */
+.gallery-event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(16, 21, 18, 0.08);
+}
+
+.gallery-event-card:hover .gallery-card-img {
+  transform: scale(1.05);
+}
+
