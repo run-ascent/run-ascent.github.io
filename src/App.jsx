@@ -38,7 +38,7 @@ function Header() {
         </div>
       </div>
       <nav className={isOpen ? 'open' : ''}>
-        <Link to="/#runs" onClick={() => setIsOpen(false)}>Runs</Link>
+        <NavLink to="/runs" onClick={() => setIsOpen(false)}>Runs</NavLink>
         <NavLink to="/routes" onClick={() => setIsOpen(false)}>Routes</NavLink>
         <NavLink to="/pulse" onClick={() => setIsOpen(false)}>Pulse</NavLink>
         <NavLink to="/stories" onClick={() => setIsOpen(false)}>Stories</NavLink>
@@ -857,6 +857,17 @@ function PageHero({ kicker, title, copy, type }) {
     <section className="page-hero">
       <div className="sun small" aria-hidden="true" />
       
+      {type === 'runs' && (
+        <svg width="340" height="200" viewBox="0 0 340 200" fill="none" style={{ position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)', opacity: 0.22, pointerEvents: 'none', zIndex: 1 }}>
+          <path d="M20,100 C80,60 120,60 170,100 C220,140 260,140 320,100" stroke="var(--orange)" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M20,120 C80,80 120,80 170,120 C220,160 260,160 320,120" stroke="var(--orange)" strokeWidth="2" strokeDasharray="4 4" />
+          <path d="M20,80 C80,40 120,40 170,80 C220,120 260,120 320,80" stroke="var(--orange)" strokeWidth="1.5" />
+          <circle cx="170" cy="100" r="10" fill="var(--orange)" />
+          <path d="M150,100 L190,100" stroke="var(--orange)" strokeWidth="1" />
+          <path d="M170,80 L170,120" stroke="var(--orange)" strokeWidth="1" />
+        </svg>
+      )}
+
       {type === 'routes' && (
         <svg width="340" height="240" viewBox="0 0 340 240" fill="none" style={{ position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)', opacity: 0.22, pointerEvents: 'none', zIndex: 1 }}>
           <path d="M50,120 C80,40 180,30 260,80 C320,120 280,180 200,200 C120,220 30,170 50,120 Z" stroke="var(--orange)" strokeWidth="1.5" strokeDasharray="4 4" />
@@ -954,6 +965,41 @@ function Footer() {
   );
 }
 
+function RunsPage() {
+  return (
+    <main className="page">
+      <PageHero
+        kicker="Weekly Schedule"
+        title="SHOW UP. THE REST IS EASY."
+        copy="Our weekly community run schedule, recovery jogs, and buddy runs. Find your group and run, walk, or jog at your own pace."
+        type="runs"
+      />
+      <EventCards />
+      
+      <section className="paper-section" style={{ paddingTop: '0' }}>
+        <div style={{
+          maxWidth: 'var(--max)',
+          margin: '0 auto',
+          padding: '24px',
+          borderLeft: '4px solid var(--orange)',
+          background: 'rgba(240, 90, 40, 0.04)',
+          borderRadius: '3px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px'
+        }}>
+          <strong style={{ fontSize: '0.92rem', color: 'var(--orange)', fontFamily: 'DM Mono, monospace', textTransform: 'uppercase' }}>
+            🏃‍♂️ Coordination & Safety
+          </strong>
+          <p style={{ fontSize: '0.85rem', margin: 0, color: 'var(--forest)', lineHeight: '1.6' }}>
+            We share coordinates, start points, and updates for all weekly runs in our Strava Club events. For safety reasons, morning runs start strictly at 06:30 AM before the heat rises, and running beyond the Jersey Farm gates after sunset is strongly discouraged.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
+
 export default function App() {
   const location = useLocation();
   const path = location.pathname;
@@ -968,6 +1014,7 @@ export default function App() {
     <>
       <ScrollToHash />
       <Header />
+      {path === '/runs' ? <RunsPage /> : null}
       {path === '/routes' ? <RouteLibrary /> : null}
       {path === '/pulse' ? (
         <main className="page">
@@ -984,7 +1031,7 @@ export default function App() {
       {path === '/stories' ? <StoriesPage /> : null}
       {isStoriesSubpage ? <BlogPostPage id={storiesSubpageId} /> : null}
       {isGallerySubpage ? <EventGalleryPage id={gallerySubpageId} /> : null}
-      {!['/routes', '/pulse', '/stories', '/join'].includes(path) && !isStoriesSubpage && !isGallerySubpage ? <Home /> : null}
+      {!['/runs', '/routes', '/pulse', '/stories', '/join'].includes(path) && !isStoriesSubpage && !isGallerySubpage ? <Home /> : null}
       <Footer />
     </>
   );
