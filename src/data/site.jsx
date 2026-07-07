@@ -4,7 +4,7 @@ export const siteConfig = {
     label: 'NEXT ASCENT',
     day: 'SUNDAY',
     time: '06:30 AM',
-    place: 'SAME PLACE',
+    place: 'VIRTUAL',
     note: 'JUST SHOW UP',
   },
   links: {
