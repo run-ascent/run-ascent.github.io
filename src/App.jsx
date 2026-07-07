@@ -83,21 +83,6 @@ function Hero() {
       <div className="sun" aria-hidden="true" />
       <div className="hill hill-back" aria-hidden="true" />
       <div className="hill hill-front" aria-hidden="true" />
-      <img 
-        src={assetPath('logo.png')} 
-        alt="" 
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: '38%',
-          transform: 'translate(-50%, -50%)',
-          width: 'min(480px, 80vw)',
-          height: 'auto',
-          opacity: 0.06,
-          pointerEvents: 'none',
-          zIndex: 0
-        }}
-      />
       <div className="hero-copy reveal">
         <p className="eyebrow">A student-led running community</p>
         <h1 id="home-title">ASCENT</h1>
@@ -467,33 +452,19 @@ function RouteLibrary() {
                 <li><strong>Safety first:</strong> Winding forest roads can be hazardous. Running beyond the Jersey Farm area after sunset, or on unlit roads, is strictly discouraged due to low visibility and active wildlife.</li>
               </ul>
             </article>
-            <aside className="join-card" style={{ position: 'relative', overflow: 'hidden' }}>
-              <img 
-                src={assetPath('logo.png')} 
-                alt="" 
-                style={{
-                  position: 'absolute',
-                  right: '-30px',
-                  bottom: '-30px',
-                  width: '160px',
-                  height: 'auto',
-                  opacity: 0.05,
-                  pointerEvents: 'none',
-                  zIndex: 0
-                }}
-              />
-              <h2 style={{ position: 'relative', zIndex: 1 }}>JOIN ASCENT</h2>
-              <p style={{ position: 'relative', zIndex: 1 }}>Connect with our community of active runners and stay updated on weekly routes and events.</p>
-              <a className="button primary" href={siteConfig.links.sundayRun} style={{ position: 'relative', zIndex: 1 }}>
+            <aside className="join-card">
+              <h2>JOIN ASCENT</h2>
+              <p>Connect with our community of active runners and stay updated on weekly routes and events.</p>
+              <a className="button primary" href={siteConfig.links.sundayRun}>
                 JOIN SUNDAY RUN ↗
               </a>
-              <a className="button ghost" href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer" style={{ position: 'relative', zIndex: 1 }}>
+              <a className="button ghost" href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">
                 INSTAGRAM ↗
               </a>
-              <a className="button ghost" href={siteConfig.links.strava} target="_blank" rel="noopener noreferrer" style={{ position: 'relative', zIndex: 1 }}>
+              <a className="button ghost" href={siteConfig.links.strava} target="_blank" rel="noopener noreferrer">
                 STRAVA CLUB ↗
               </a>
-              <a className="button ghost" href={siteConfig.links.email} style={{ position: 'relative', zIndex: 1 }}>
+              <a className="button ghost" href={siteConfig.links.email}>
                 EMAIL US ↗
               </a>
             </aside>
