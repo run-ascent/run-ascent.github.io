@@ -260,38 +260,30 @@
       box-shadow: 0 4px 12px rgba(240, 90, 40, 0.2);
     }
     
-    /* Stats Grid Cards matching live site .pulse-stat style */
-    .pulse-stat-grid {
+    /* Stat box styles (light slide) */
+    .stat-box-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 32px;
       margin-top: 40px;
     }
     
-    .pulse-stat-card {
-      background: var(--forest);
-      color: var(--paper);
-      padding: 32px 40px;
-      border-radius: 8px;
-      border: 1px solid rgba(245, 235, 230, 0.08);
-      position: relative;
+    .stat-box {
+      border-left: 6px solid var(--orange);
+      padding-left: 24px;
     }
     
-    .pulse-stat-card h3 {
-      font-size: 5rem;
+    .stat-box .val {
+      font-size: 4rem;
       font-weight: 800;
-      margin: 0 0 8px 0;
-      line-height: 1.0;
-      color: var(--orange);
+      line-height: 1.1;
     }
     
-    .pulse-stat-card p {
+    .stat-box .lbl {
       font-family: 'DM Mono', monospace;
-      font-size: 1.2rem;
-      color: rgba(245, 235, 230, 0.6);
-      margin: 0;
+      font-size: 1.4rem;
+      color: rgba(16, 21, 18, 0.6);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
     
     .feature-list {
@@ -522,9 +514,9 @@
     
     .pulse-board-stats {
       display: flex;
-      gap: 32px;
+      gap: 24px;
       font-family: 'DM Mono', monospace;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: rgba(245, 235, 230, 0.85);
     }
     
@@ -551,17 +543,13 @@
       flex-direction: column;
     }
     
+    /* Styled vector mountain sunset gradient for actual premium graphics in placeholders */
     .blog-site-image-placeholder {
       height: 200px;
-      background: rgba(245, 235, 230, 0.04);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #18231c 0%, #101512 100%);
       border-bottom: 1px solid rgba(245, 235, 230, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 1.4rem;
-      color: rgba(245, 235, 230, 0.4);
-      letter-spacing: 0.05em;
     }
     
     .blog-site-content {
@@ -749,15 +737,15 @@
               <h2>COMMUNITY STATISTICS</h2>
               <p>Active dashboard tracking climbing milestones and combined distances directly from Strava.</p>
               
-              <!-- Direct website replica .pulse-stat cards -->
-              <div class="pulse-stat-grid">
-                <div class="pulse-stat-card">
-                  <h3>57</h3>
-                  <p>runners</p>
+              <!-- Reverted and clean light-slide stat boxes -->
+              <div class="stat-box-container" style="color: var(--forest);">
+                <div class="stat-box">
+                  <div class="val">57</div>
+                  <div class="lbl">runners</div>
                 </div>
-                <div class="pulse-stat-card">
-                  <h3>158.9</h3>
-                  <p>km moved</p>
+                <div class="stat-box">
+                  <div class="val">158.9</div>
+                  <div class="lbl">km moved</div>
                 </div>
               </div>
             </div>
@@ -995,8 +983,8 @@
             </div>
             <div class="slide-body">
               <span class="kicker">THE CLUB ETHOS</span>
-              <h2>CONSISTENCY OVER SPEED</h2>
-              <p>Why we completely removed average speed metrics from our weekly leaderboards.</p>
+              <h2>THE POWER OF CONSISTENCY</h2>
+              <p>A weekly board celebrating consistency, showing up, and conquering local hills together.</p>
             </div>
             <div class="slide-footer">
               <span class="url">run-ascent.github.io/pulse</span>
@@ -1021,7 +1009,7 @@
               <h2>THE PULSE LEADERBOARD</h2>
               <p>Weekly listings celebrating consistency and climbing efforts over speed tables.</p>
               
-              <!-- Direct website replica .pulse-board-row components -->
+              <!-- Direct website replica pulse-board-row components with updated names and elevations -->
               <div class="pulse-board-mocks">
                 <div class="pulse-board-row">
                   <div class="pulse-board-athlete">
@@ -1030,30 +1018,33 @@
                     <span class="pulse-board-name">Karan Singh</span>
                   </div>
                   <div class="pulse-board-stats">
-                    <span>20 runs</span>
-                    <span class="highlight">89.9 km</span>
+                    <span>15 runs</span>
+                    <span class="highlight">78.4 km</span>
+                    <span>820m climb</span>
                   </div>
                 </div>
                 <div class="pulse-board-row">
                   <div class="pulse-board-athlete">
                     <span class="pulse-board-rank">#2</span>
-                    <div class="pulse-board-avatar" style="background: linear-gradient(135deg, #5c635e, #8c948e)">RP</div>
-                    <span class="pulse-board-name">Rudra Patel</span>
+                    <div class="pulse-board-avatar" style="background: linear-gradient(135deg, #5c635e, #8c948e)">PR</div>
+                    <span class="pulse-board-name">Preetam</span>
                   </div>
                   <div class="pulse-board-stats">
-                    <span>2 runs</span>
-                    <span class="highlight">20.0 km</span>
+                    <span>10 runs</span>
+                    <span class="highlight">42.1 km</span>
+                    <span>410m climb</span>
                   </div>
                 </div>
                 <div class="pulse-board-row">
                   <div class="pulse-board-athlete">
                     <span class="pulse-board-rank">#3</span>
-                    <div class="pulse-board-avatar" style="background: linear-gradient(135deg, #5c635e, #8c948e)">SB</div>
-                    <span class="pulse-board-name">Sanjay B</span>
+                    <div class="pulse-board-avatar" style="background: linear-gradient(135deg, #5c635e, #8c948e)">ST</div>
+                    <span class="pulse-board-name">Shrayansh</span>
                   </div>
                   <div class="pulse-board-stats">
-                    <span>2 runs</span>
-                    <span class="highlight">10.4 km</span>
+                    <span>8 runs</span>
+                    <span class="highlight">35.5 km</span>
+                    <span>380m climb</span>
                   </div>
                 </div>
               </div>
@@ -1078,19 +1069,19 @@
             </div>
             <div class="slide-body">
               <span class="kicker">THE SYSTEM</span>
-              <h2>WHY NO PACE TABLES?</h2>
+              <h2>CELEBRATING EFFORT</h2>
               <div class="feature-list">
                 <div class="feature-item">
                   <span>01</span>
-                  <p><strong>Zero Pace Pressure:</strong> Fast runners and walk-joggers run side-by-side on equal terms.</p>
+                  <p><strong>Consistency First:</strong> Standings rank athletes by runs logged, promoting sustainable weekly habits.</p>
                 </div>
                 <div class="feature-item">
                   <span>02</span>
-                  <p><strong>Ranked by Effort:</strong> Positions depend strictly on consistency and runs logged in a week.</p>
+                  <p><strong>Climbing Focus:</strong> Cumulative elevation gain is highlighted to celebrate Vithura hill loop milestones.</p>
                 </div>
                 <div class="feature-item">
                   <span>03</span>
-                  <p><strong>Climbing Focus:</strong> We track climbing elevation gains (meters) to celebrate hills conquered.</p>
+                  <p><strong>Group Momentum:</strong> Celebrates showing up together, where walk-joggers and fast runners run side-by-side.</p>
                 </div>
               </div>
             </div>
@@ -1171,10 +1162,23 @@
               <h2>COMMUNITY LOGS</h2>
               <p>Read detailed logs written directly by members of our community.</p>
               
-              <!-- Direct website replica .blog-site-card layouts -->
+              <!-- Direct website replica blog-site-card layouts with actual CSS sunset-mountain vectors -->
               <div class="blog-cards-container">
                 <div class="blog-site-card">
-                  <div class="blog-site-image-placeholder">Landscape Frame (3:2)</div>
+                  <div class="blog-site-image-placeholder">
+                    <svg width="100%" height="100%" viewBox="0 0 100 60" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0;">
+                      <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" style="stop-color:#f05a28;stop-opacity:1" />
+                          <stop offset="100%" style="stop-color:#101512;stop-opacity:1" />
+                        </linearGradient>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#grad1)" />
+                      <path d="M0,60 L25,25 L45,45 L75,15 L100,55 L100,60 Z" fill="rgba(16, 21, 18, 0.45)"/>
+                      <path d="M0,60 L35,40 L60,50 L85,30 L100,60 Z" fill="rgba(16, 21, 18, 0.6)"/>
+                      <circle cx="75" cy="15" r="4" fill="#f5ebe6" opacity="0.3" />
+                    </svg>
+                  </div>
                   <div class="blog-site-content">
                     <span class="blog-site-kicker">RACE REPORT</span>
                     <h4>VAGAMON ENVIROTHON</h4>
@@ -1188,7 +1192,20 @@
                   </div>
                 </div>
                 <div class="blog-site-card">
-                  <div class="blog-site-image-placeholder">Landscape Frame (3:2)</div>
+                  <div class="blog-site-image-placeholder">
+                    <svg width="100%" height="100%" viewBox="0 0 100 60" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0;">
+                      <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" style="stop-color:#2b8a3e;stop-opacity:1" />
+                          <stop offset="100%" style="stop-color:#101512;stop-opacity:1" />
+                        </linearGradient>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#grad2)" />
+                      <path d="M0,60 L20,35 L50,45 L70,25 L100,50 L100,60 Z" fill="rgba(16, 21, 18, 0.45)"/>
+                      <path d="M0,60 L30,48 L55,53 L80,38 L100,60 Z" fill="rgba(16, 21, 18, 0.6)"/>
+                      <circle cx="30" cy="20" r="5" fill="#f05a28" opacity="0.5" />
+                    </svg>
+                  </div>
                   <div class="blog-site-content">
                     <span class="blog-site-kicker">SAFETY MANUAL</span>
                     <h4>FOOTHILL RUNNING</h4>
