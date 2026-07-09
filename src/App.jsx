@@ -11,7 +11,6 @@ import {
 } from './data/site.jsx';
 import stravaCache from './data/strava-cache.json';
 import RouteVisualizer from './components/RouteVisualizer.jsx';
-import InstagramAssetsPage from './components/InstagramAssetsPage.jsx';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -834,11 +833,6 @@ export default function App() {
 
   const isStoriesSubpage = path.startsWith('/stories/');
   const storiesSubpageId = isStoriesSubpage ? path.replace('/stories/', '') : null;
-
-  if (path === '/instagram') {
-    return <InstagramAssetsPage />;
-  }
-
   return (
     <>
       <ScrollToHash />
