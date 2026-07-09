@@ -1586,18 +1586,38 @@ Log in, find the start-point coordinates on the site, and join the Strava club. 
       const element = document.getElementById(slideId);
       if (!element) return;
       
-      // Render canvas at double scale for ultra-crisp high-res output (2160x2700px)
-      const canvas = await html2canvas(element, {
-        scale: 2, 
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#101512'
-      });
+      // Clone the slide card node to isolate it from CSS transitions/transforms
+      const clone = element.cloneNode(true);
       
-      const link = document.createElement('a');
-      link.download = `${filename}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      // Strip scaling transforms and position off-screen at full native 1080x1350px dimensions
+      clone.style.transform = 'none';
+      clone.style.position = 'fixed';
+      clone.style.top = '-9999px';
+      clone.style.left = '-9999px';
+      clone.style.width = '1080px';
+      clone.style.height = '1350px';
+      
+      document.body.appendChild(clone);
+      
+      try {
+        // Render the raw, un-scaled clone at scale: 2 for a crisp 2160x2700px output
+        const canvas = await html2canvas(clone, {
+          scale: 2, 
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#101512'
+        });
+        
+        const link = document.createElement('a');
+        link.download = `${filename}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch (err) {
+        console.error('Export failed: ', err);
+      } finally {
+        // Clean up the cloned node
+        document.body.removeChild(clone);
+      }
     }
 
     function copyCaption(id) {
