@@ -6,9 +6,7 @@
     <title>ASCENT</title>
     <script>
       sessionStorage.redirect = location.href;
-      var parts = location.pathname.split('/').filter(Boolean);
-      var base = parts.length > 1 ? '/' + parts[0] + '/' : '/';
-      location.replace(base);
+      location.replace('/');
     </script>
   </head>
   <body></body>

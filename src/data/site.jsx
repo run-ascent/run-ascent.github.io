@@ -160,7 +160,7 @@ export const storiesList = [
     readTime: '4 MIN READ',
     author: {
       name: 'Shrayansh Tiwari',
-      role: 'Route Coordinator',
+      role: 'Community Founder',
       avatarColor: 'var(--green)',
       initials: 'ST'
     },
@@ -188,10 +188,10 @@ export const storiesList = [
     date: 'January 2026',
     readTime: '3 MIN READ',
     author: {
-      name: 'Shrayansh',
-      role: 'Community Founder',
+      name: 'Preetam',
+      role: 'Route Coordinator',
       avatarColor: 'var(--forest)',
-      initials: 'TS'
+      initials: 'PR'
     },
     image: 'images/First-Ascent.jpeg',
     description: 'How a simple mid-week warmup run sparked a student-led community of 57 active runners moving and climbing the Western Ghats foothills together.',
