@@ -1586,14 +1586,25 @@ Log in, find the start-point coordinates on the site, and join the Strava club. 
       const element = document.getElementById(slideId);
       if (!element) return;
       
-      // 1. Temporarily clear the stylesheet scale transform to force native browser layout
-      element.style.transform = 'none';
+      // 1. Save original parent and sibling context to restore DOM structure later
+      const parent = element.parentElement;
+      const nextSibling = element.nextSibling;
       
-      // 2. Force synchronous layout reflow so the browser repaints at native 1080x1350px size
+      // 2. Temporarily detach from parent wrapper to bypass border-radius & overflow clipping
+      document.body.appendChild(element);
+      
+      // 3. Force full native layout dimensions (1080x1350px) on-screen
+      element.style.transform = 'none';
+      element.style.position = 'fixed';
+      element.style.top = '0';
+      element.style.left = '0';
+      element.style.zIndex = '99999';
+      
+      // Force synchronous browser layout reflow
       const reflow = element.offsetHeight;
       
       try {
-        // 3. Render the full-size on-screen card at 2x scale for 2160x2700px resolution
+        // 4. Render the unclipped, full-resolution slide at scale 2 for a crisp 2160x2700px image
         const canvas = await html2canvas(element, {
           scale: 2, 
           useCORS: true,
@@ -1601,7 +1612,7 @@ Log in, find the start-point coordinates on the site, and join the Strava club. 
           backgroundColor: '#101512'
         });
         
-        // 4. Trigger download
+        // 5. Trigger download
         const link = document.createElement('a');
         link.download = `${filename}.png`;
         link.href = canvas.toDataURL('image/png');
@@ -1609,8 +1620,19 @@ Log in, find the start-point coordinates on the site, and join the Strava club. 
       } catch (err) {
         console.error('Export failed: ', err);
       } finally {
-        // 5. Restore stylesheet transform (re-scales to 33.3% preview size)
+        // 6. Reset styles
         element.style.transform = '';
+        element.style.position = '';
+        element.style.top = '';
+        element.style.left = '';
+        element.style.zIndex = '';
+        
+        // 7. Restore DOM structure back inside parent wrapper
+        if (nextSibling) {
+          parent.insertBefore(element, nextSibling);
+        } else {
+          parent.appendChild(element);
+        }
       }
     }
 
