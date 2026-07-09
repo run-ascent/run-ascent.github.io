@@ -122,19 +122,19 @@
       padding: 80px;
     }
     
-    /* Topographic background texture styled with CSS */
+    /* Topographic background texture styled with CSS with increased opacity */
     .topo-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.05;
+      opacity: 0.12;
       pointer-events: none;
       background-image: 
-        radial-gradient(circle at 50% 20%, transparent 100px, rgba(245, 235, 230, 0.2) 101px, rgba(245, 235, 230, 0.2) 102px, transparent 103px),
-        radial-gradient(circle at 10% 70%, transparent 150px, rgba(245, 235, 230, 0.2) 151px, rgba(245, 235, 230, 0.2) 152px, transparent 153px),
-        radial-gradient(circle at 90% 80%, transparent 80px, rgba(245, 235, 230, 0.2) 81px, rgba(245, 235, 230, 0.2) 82px, transparent 83px);
+        radial-gradient(circle at 50% 20%, transparent 100px, rgba(245, 235, 230, 0.25) 101px, rgba(245, 235, 230, 0.25) 102px, transparent 103px),
+        radial-gradient(circle at 10% 70%, transparent 150px, rgba(245, 235, 230, 0.25) 151px, rgba(245, 235, 230, 0.25) 152px, transparent 153px),
+        radial-gradient(circle at 90% 80%, transparent 80px, rgba(245, 235, 230, 0.25) 81px, rgba(245, 235, 230, 0.25) 82px, transparent 83px);
       background-size: 200px 200px;
       z-index: 0;
     }
@@ -151,11 +151,11 @@
     }
     
     .light-slide .topo-bg {
-      opacity: 0.04;
+      opacity: 0.09;
       background-image: 
-        radial-gradient(circle at 50% 20%, transparent 100px, rgba(16, 21, 18, 0.2) 101px, rgba(16, 21, 18, 0.2) 102px, transparent 103px),
-        radial-gradient(circle at 10% 70%, transparent 150px, rgba(16, 21, 18, 0.2) 151px, rgba(16, 21, 18, 0.2) 152px, transparent 153px),
-        radial-gradient(circle at 90% 80%, transparent 80px, rgba(16, 21, 18, 0.2) 81px, rgba(16, 21, 18, 0.2) 82px, transparent 83px);
+        radial-gradient(circle at 50% 20%, transparent 100px, rgba(16, 21, 18, 0.25) 101px, rgba(16, 21, 18, 0.25) 102px, transparent 103px),
+        radial-gradient(circle at 10% 70%, transparent 150px, rgba(16, 21, 18, 0.25) 151px, rgba(16, 21, 18, 0.25) 152px, transparent 153px),
+        radial-gradient(circle at 90% 80%, transparent 80px, rgba(16, 21, 18, 0.25) 81px, rgba(16, 21, 18, 0.25) 82px, transparent 83px);
     }
     
     .slide-header {
@@ -260,7 +260,7 @@
       box-shadow: 0 4px 12px rgba(240, 90, 40, 0.2);
     }
     
-    /* Stat box styles (light slide) */
+    /* Stat box styles (light slide) with 3 column layout support */
     .stat-box-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -737,15 +737,19 @@
               <h2>COMMUNITY STATISTICS</h2>
               <p>Active dashboard tracking climbing milestones and combined distances directly from Strava.</p>
               
-              <!-- Reverted and clean light-slide stat boxes -->
-              <div class="stat-box-container" style="color: var(--forest);">
+              <!-- Reverted and clean light-slide stat boxes (adjusted total km to 267.0 km and added meters climbed) -->
+              <div class="stat-box-container" style="color: var(--forest); grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
                 <div class="stat-box">
                   <div class="val">57</div>
                   <div class="lbl">runners</div>
                 </div>
                 <div class="stat-box">
-                  <div class="val">158.9</div>
+                  <div class="val">267.0</div>
                   <div class="lbl">km moved</div>
+                </div>
+                <div class="stat-box">
+                  <div class="val">1,090</div>
+                  <div class="lbl">climb (m)</div>
                 </div>
               </div>
             </div>
@@ -1162,7 +1166,7 @@
               <h2>COMMUNITY LOGS</h2>
               <p>Read detailed logs written directly by members of our community.</p>
               
-              <!-- Direct website replica blog-site-card layouts with actual CSS sunset-mountain vectors -->
+              <!-- Direct website replica blog-site-card layouts with switched names for Karan and Shrayansh -->
               <div class="blog-cards-container">
                 <div class="blog-site-card">
                   <div class="blog-site-image-placeholder">
@@ -1176,17 +1180,17 @@
                       <rect width="100%" height="100%" fill="url(#grad1)" />
                       <path d="M0,60 L25,25 L45,45 L75,15 L100,55 L100,60 Z" fill="rgba(16, 21, 18, 0.45)"/>
                       <path d="M0,60 L35,40 L60,50 L85,30 L100,60 Z" fill="rgba(16, 21, 18, 0.6)"/>
-                      <circle cx="75" cy="15" r="4" fill="#f5ebe6" opacity="0.3" />
+                      <circle cx="75" cy="15" r="4" fill="#f5ebe6" opacity="0.6" />
                     </svg>
                   </div>
                   <div class="blog-site-content">
                     <span class="blog-site-kicker">RACE REPORT</span>
                     <h4>VAGAMON ENVIROTHON</h4>
                     <div class="blog-site-author">
-                      <div class="blog-site-author-avatar">KS</div>
+                      <div class="blog-site-author-avatar">ST</div>
                       <div class="blog-site-author-meta">
-                        <strong>Karan Singh</strong>
-                        <span>Captain · 6 min read</span>
+                        <strong>Shrayansh Tiwari</strong>
+                        <span>Founder · 6 min read</span>
                       </div>
                     </div>
                   </div>
@@ -1203,17 +1207,17 @@
                       <rect width="100%" height="100%" fill="url(#grad2)" />
                       <path d="M0,60 L20,35 L50,45 L70,25 L100,50 L100,60 Z" fill="rgba(16, 21, 18, 0.45)"/>
                       <path d="M0,60 L30,48 L55,53 L80,38 L100,60 Z" fill="rgba(16, 21, 18, 0.6)"/>
-                      <circle cx="30" cy="20" r="5" fill="#f05a28" opacity="0.5" />
+                      <circle cx="30" cy="20" r="5" fill="#f05a28" opacity="0.75" />
                     </svg>
                   </div>
                   <div class="blog-site-content">
                     <span class="blog-site-kicker">SAFETY MANUAL</span>
                     <h4>FOOTHILL RUNNING</h4>
                     <div class="blog-site-author">
-                      <div class="blog-site-author-avatar">ST</div>
+                      <div class="blog-site-author-avatar">KS</div>
                       <div class="blog-site-author-meta">
-                        <strong>Shrayansh Tiwari</strong>
-                        <span>Founder · 4 min read</span>
+                        <strong>Karan Singh</strong>
+                        <span>Captain · 4 min read</span>
                       </div>
                     </div>
                   </div>
