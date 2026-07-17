@@ -896,14 +896,9 @@ dd {
 .runs-dashboard-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 24px 48px;
   margin: 0 auto;
   max-width: var(--max);
-}
-
-.runs-column {
-  display: flex;
-  flex-direction: column;
 }
 
 .column-title {
@@ -911,16 +906,10 @@ dd {
   font-size: 1.1rem;
   color: var(--orange);
   letter-spacing: 0.1em;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   border-bottom: 1px solid var(--line-dark);
   padding-bottom: 12px;
   text-transform: uppercase;
-}
-
-.column-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }
 
 .runs-card {
@@ -1009,7 +998,14 @@ dd {
 
 @media (max-width: 768px) {
   .runs-dashboard-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .column-title {
+    margin-top: 32px;
+  }
+  .column-title:first-of-type {
+    margin-top: 0;
   }
 }

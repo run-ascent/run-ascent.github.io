@@ -143,6 +143,51 @@ function Invitation() {
 }
 
 function EventCards() {
+  const renderEventCard = (event, orderVal) => {
+    if (!event) return null;
+    return (
+      <article className="runs-card" style={{ order: orderVal }} key={event.title}>
+        <div className="runs-card-header">
+          <span className="runs-card-date">{event.when}</span>
+        </div>
+        <h3>{event.title}</h3>
+        <p>{event.description}</p>
+        <div className="runs-card-footer">
+          {event.url ? (
+            event.url.startsWith('http') ? (
+              <a href={event.url} target="_blank" rel="noopener noreferrer">
+                {event.action}
+              </a>
+            ) : (
+              <Link to={event.url}>{event.action}</Link>
+            )
+          ) : (
+            <Link to="/join">{event.action}</Link>
+          )}
+        </div>
+      </article>
+    );
+  };
+
+  const renderRaceCard = (race, orderVal) => {
+    if (!race) return null;
+    return (
+      <article className="runs-card" style={{ order: orderVal }} key={race.title}>
+        <div className="runs-card-header">
+          <span className="runs-card-date">{race.date}</span>
+          <span className="runs-card-badge">{race.distance}</span>
+        </div>
+        <h3>{race.title}</h3>
+        <p>{race.description}</p>
+        <div className="runs-card-footer">
+          <a href={race.url} target="_blank" rel="noopener noreferrer">
+            {race.action}
+          </a>
+        </div>
+      </article>
+    );
+  };
+
   return (
     <section id="runs" className="dark-section">
       <div className="section-heading">
@@ -151,56 +196,21 @@ function EventCards() {
       </div>
       
       <div className="runs-dashboard-grid">
-        {/* Left Column: Weekly Club Sessions */}
-        <div className="runs-column">
-          <h3 className="column-title">WEEKLY CLUB SESSIONS</h3>
-          <div className="column-cards">
-            {events.map((event) => (
-              <article className="runs-card" key={event.title}>
-                <div className="runs-card-header">
-                  <span className="runs-card-date">{event.when}</span>
-                </div>
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
-                <div className="runs-card-footer">
-                  {event.url ? (
-                    event.url.startsWith('http') ? (
-                      <a href={event.url} target="_blank" rel="noopener noreferrer">
-                        {event.action}
-                      </a>
-                    ) : (
-                      <Link to={event.url}>{event.action}</Link>
-                    )
-                  ) : (
-                    <Link to="/join">{event.action}</Link>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+        {/* Column Titles (interleaved in document order for 2-column layout, styled with flex-orders for mobile stacking) */}
+        <h3 className="column-title" style={{ order: 1 }}>WEEKLY CLUB SESSIONS</h3>
+        <h3 className="column-title" style={{ order: 5 }}>UPCOMING LOCAL RACES</h3>
         
-        {/* Right Column: Upcoming Local Races */}
-        <div className="runs-column">
-          <h3 className="column-title">UPCOMING LOCAL RACES</h3>
-          <div className="column-cards">
-            {upcomingRaces.map((race) => (
-              <article className="runs-card" key={race.title}>
-                <div className="runs-card-header">
-                  <span className="runs-card-date">{race.date}</span>
-                  <span className="runs-card-badge">{race.distance}</span>
-                </div>
-                <h3>{race.title}</h3>
-                <p>{race.description}</p>
-                <div className="runs-card-footer">
-                  <a href={race.url} target="_blank" rel="noopener noreferrer">
-                    {race.action}
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+        {/* Row 1 */}
+        {renderEventCard(events[0], 2)}
+        {renderRaceCard(upcomingRaces[0], 6)}
+        
+        {/* Row 2 */}
+        {renderEventCard(events[1], 3)}
+        {renderRaceCard(upcomingRaces[1], 7)}
+        
+        {/* Row 3 */}
+        {renderEventCard(events[2], 4)}
+        {renderRaceCard(upcomingRaces[2], 8)}
       </div>
     </section>
   );

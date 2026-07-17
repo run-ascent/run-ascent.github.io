@@ -46,7 +46,7 @@ export const upcomingRaces = [
     description: '10K timed route celebrating the culture of Kerala’s capital.',
     distance: '10K',
     action: 'Register',
-    url: 'https://myraceindia.com',
+    url: 'https://itenrunnersclub.org/events/trivandrum-heritage-run-2026',
   },
   {
     date: 'SEP 13, 2026',
@@ -54,7 +54,7 @@ export const upcomingRaces = [
     description: 'Scenic run along Kovalam Beach supporting mental health awareness.',
     distance: '42.2K / 21.1K / 10K / 5K',
     action: 'Register',
-    url: 'https://townscript.com',
+    url: 'https://kovalammarathon.com/',
   },
   {
     date: 'NOV 15, 2026',
