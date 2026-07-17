@@ -892,3 +892,124 @@ dd {
   transform: scale(1.05);
 }
 
+/* Runs & Racing Dashboard Grid Styles */
+.runs-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin: 0 auto;
+  max-width: var(--max);
+}
+
+.runs-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--orange);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line-dark);
+  padding-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.column-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.runs-card {
+  border: 1px solid var(--line-dark);
+  padding: 24px;
+  background: rgba(245, 235, 230, 0.01);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.runs-card:hover {
+  border-color: rgba(240, 90, 40, 0.4);
+  background: rgba(245, 235, 230, 0.02);
+}
+
+.runs-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.runs-card-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--orange);
+  text-transform: uppercase;
+}
+
+.runs-card-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem;
+  color: var(--paper);
+  background: rgba(245, 235, 230, 0.08);
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.runs-card h3 {
+  font-size: 1.42rem;
+  margin: 0 0 8px;
+  color: var(--paper);
+}
+
+.runs-card p {
+  color: rgba(243, 240, 232, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.runs-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.runs-card a,
+.runs-card button {
+  align-self: flex-start;
+  color: var(--paper);
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.runs-card a:hover,
+.runs-card button:hover {
+  color: var(--orange);
+  border-color: var(--paper);
+}
+
+@media (max-width: 768px) {
+  .runs-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

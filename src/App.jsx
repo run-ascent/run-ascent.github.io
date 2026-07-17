@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation, Navigate } from 'react-router-dom';
 import {
   consistencyBoard,
   events,
+  upcomingRaces,
   galleryItems,
   pulseStats,
   routes,
@@ -145,28 +146,61 @@ function EventCards() {
   return (
     <section id="runs" className="dark-section">
       <div className="section-heading">
-        <p className="section-kicker">This week</p>
-        <h2>THIS WEEK AT ASCENT</h2>
+        <p className="section-kicker">This week & beyond</p>
+        <h2>RUNS & RACING</h2>
       </div>
-      <div className="event-grid">
-        {events.map((event) => (
-          <article className="event-card" key={event.title}>
-            <p className="event-time">{event.when}</p>
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
-            {event.url ? (
-              event.url.startsWith('http') ? (
-                <a href={event.url} target="_blank" rel="noopener noreferrer">
-                  {event.action}
-                </a>
-              ) : (
-                <Link to={event.url}>{event.action}</Link>
-              )
-            ) : (
-              <Link to="/join">{event.action}</Link>
-            )}
-          </article>
-        ))}
+      
+      <div className="runs-dashboard-grid">
+        {/* Left Column: Weekly Club Sessions */}
+        <div className="runs-column">
+          <h3 className="column-title">WEEKLY CLUB SESSIONS</h3>
+          <div className="column-cards">
+            {events.map((event) => (
+              <article className="runs-card" key={event.title}>
+                <div className="runs-card-header">
+                  <span className="runs-card-date">{event.when}</span>
+                </div>
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+                <div className="runs-card-footer">
+                  {event.url ? (
+                    event.url.startsWith('http') ? (
+                      <a href={event.url} target="_blank" rel="noopener noreferrer">
+                        {event.action}
+                      </a>
+                    ) : (
+                      <Link to={event.url}>{event.action}</Link>
+                    )
+                  ) : (
+                    <Link to="/join">{event.action}</Link>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        
+        {/* Right Column: Upcoming Local Races */}
+        <div className="runs-column">
+          <h3 className="column-title">UPCOMING LOCAL RACES</h3>
+          <div className="column-cards">
+            {upcomingRaces.map((race) => (
+              <article className="runs-card" key={race.title}>
+                <div className="runs-card-header">
+                  <span className="runs-card-date">{race.date}</span>
+                  <span className="runs-card-badge">{race.distance}</span>
+                </div>
+                <h3>{race.title}</h3>
+                <p>{race.description}</p>
+                <div className="runs-card-footer">
+                  <a href={race.url} target="_blank" rel="noopener noreferrer">
+                    {race.action}
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
