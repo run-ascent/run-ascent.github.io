@@ -6,6 +6,7 @@ import {
   upcomingRaces,
   galleryItems,
   pulseStats,
+  weeklyArchive,
   routes,
   siteConfig,
   storiesList
@@ -281,22 +282,47 @@ function AnimatedCounter({ value }) {
 }
 
 function PulsePreview({ full = false }) {
-  const displayStats = stravaCache.isLive ? stravaCache.pulseStats : pulseStats;
-  const displayBoard = stravaCache.isLive ? stravaCache.consistencyBoard : consistencyBoard;
-  const isLive = stravaCache.isLive;
-  const hasDetails = displayBoard.length > 0 && displayBoard[0].distance !== undefined;
+  const [selectedWeekIndex, setSelectedWeekIndex] = useState(0);
+  const archiveList = weeklyArchive && weeklyArchive.length > 0 ? weeklyArchive : [
+    { dateLabel: 'Current Week', stats: pulseStats, board: consistencyBoard }
+  ];
+  const activeArchive = archiveList[selectedWeekIndex] || archiveList[0];
+
+  const isLive = stravaCache.isLive && selectedWeekIndex === 0;
+  const displayStats = isLive ? stravaCache.pulseStats : activeArchive.stats;
+  const displayBoard = isLive ? stravaCache.consistencyBoard : activeArchive.board;
 
   return (
     <section className={full ? 'paper-section pulse-page' : 'paper-section pulse-preview'}>
       <div className="section-heading">
         <p className="section-kicker">Club pulse {isLive && '· LIVE'}</p>
-        <h2>{full ? 'CURRENT-WEEK CLUB DATA' : 'MOVE TOGETHER, COUNT CONSISTENCY'}</h2>
+        <h2>{full ? 'WEEKLY CLUB STANDINGS' : 'MOVE TOGETHER, COUNT CONSISTENCY'}</h2>
         <p className="section-copy">
           {isLive 
             ? 'Club stats fetched live from Strava. Showing recent group activities and consistency rankings.'
-            : "Weekly leaderboard synced from our Strava Club activities"}
+            : `Showing community standings for ${activeArchive.dateLabel}`}
         </p>
+
+        {archiveList.length > 1 && (
+          <div className="pulse-archive-bar">
+            <span className="pulse-archive-label">WEEK ARCHIVE:</span>
+            <div className="pulse-archive-pills">
+              {archiveList.map((week, idx) => (
+                <button
+                  key={week.id || idx}
+                  type="button"
+                  className={`pulse-archive-pill ${selectedWeekIndex === idx ? 'active' : ''}`}
+                  onClick={() => setSelectedWeekIndex(idx)}
+                >
+                  <span>{week.dateLabel}</span>
+                  {idx === 0 && <span className="current-tag">CURRENT</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
+
       <div className="stat-grid">
         {displayStats.map((stat) => (
           <article className="stat-card" key={stat.label}>
@@ -308,7 +334,7 @@ function PulsePreview({ full = false }) {
 
       <div className="board">
         <div className="board-title" style={{ borderBottom: 'none', paddingBottom: '0' }}>
-          <p className="section-kicker">Weekly Activity Board</p>
+          <p className="section-kicker">Weekly Activity Board · {activeArchive.dateLabel}</p>
           <span>Celebrating showing up, combined miles, and foothill climbs.</span>
         </div>
         
@@ -318,7 +344,7 @@ function PulsePreview({ full = false }) {
             const isTop3 = rankNum <= 3;
             return (
               <div 
-                key={runner.name} 
+                key={`${runner.name}-${index}`} 
                 className={`leaderboard-row ${isTop3 ? 'top-3' : ''}`}
               >
                 {/* Left: Rank and Name */}

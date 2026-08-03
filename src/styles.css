@@ -892,6 +892,7 @@ dd {
   transform: scale(1.05);
 }
 
+
 /* Runs Badge Utility */
 .runs-card-badge {
   font-family: 'DM Mono', monospace;
@@ -899,6 +900,67 @@ dd {
   color: var(--paper);
   background: rgba(245, 235, 230, 0.08);
   padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Weekly Archive Pills Bar */
+.pulse-archive-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.pulse-archive-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--orange);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pulse-archive-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pulse-archive-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--line-dark);
+  background: rgba(245, 235, 230, 0.02);
+  color: rgba(243, 240, 232, 0.65);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-archive-pill:hover {
+  border-color: rgba(240, 90, 40, 0.4);
+  color: var(--paper);
+}
+
+.pulse-archive-pill.active {
+  border-color: var(--orange);
+  background: rgba(240, 90, 40, 0.15);
+  color: var(--paper);
+}
+
+.pulse-archive-pill .current-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: var(--orange);
+  color: #ffffff;
+  padding: 2px 6px;
   border-radius: 4px;
   text-transform: uppercase;
 }
