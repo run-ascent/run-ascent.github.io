@@ -933,9 +933,10 @@ dd {
   font-size: 0.85rem;
   padding: 6px 14px;
   border-radius: 20px;
-  border: 1px solid var(--line-dark);
-  background: rgba(245, 235, 230, 0.02);
-  color: rgba(243, 240, 232, 0.65);
+  border: 1px solid var(--line);
+  background: rgba(16, 21, 18, 0.04);
+  color: var(--forest);
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-flex;
@@ -944,14 +945,16 @@ dd {
 }
 
 .pulse-archive-pill:hover {
-  border-color: rgba(240, 90, 40, 0.4);
-  color: var(--paper);
+  border-color: var(--orange);
+  color: var(--orange);
+  background: rgba(240, 90, 40, 0.06);
 }
 
 .pulse-archive-pill.active {
   border-color: var(--orange);
-  background: rgba(240, 90, 40, 0.15);
-  color: var(--paper);
+  background: var(--orange);
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .pulse-archive-pill .current-tag {
@@ -963,4 +966,9 @@ dd {
   padding: 2px 6px;
   border-radius: 4px;
   text-transform: uppercase;
+}
+
+.pulse-archive-pill.active .current-tag {
+  background: #ffffff;
+  color: var(--orange);
 }
