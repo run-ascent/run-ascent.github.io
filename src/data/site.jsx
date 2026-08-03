@@ -111,24 +111,29 @@ export const routes = [
 
 export const pulseStats = [
   { value: '60', label: 'Club Runners' },
-  { value: '166.6 KM', label: 'Moved Together' },
-  { value: '1,727 M', label: 'Climbed' },
+  { value: '261.5 KM', label: 'Moved Together' },
+  { value: '2,741 M', label: 'Climbed' },
 ];
 
 export const consistencyBoard = [
-  { rank: 1, name: 'Karan Beast', distance: '41.5 km', runs: 7, longest: '12.1 km', pace: '4:22 /km', elevation: '415 m' },
-  { rank: 2, name: 'Bindusar Sahoo', distance: '30.6 km', runs: 3, longest: '13.2 km', pace: '6:03 /km', elevation: '471 m' },
-  { rank: 3, name: 'Riju Yo', distance: '22.5 km', runs: 3, longest: '11.1 km', pace: '9:55 /km', elevation: '0 m' },
-  { rank: 4, name: 'Rudra Patel', distance: '18.0 km', runs: 2, longest: '10.0 km', pace: '5:29 /km', elevation: '111 m' },
-  { rank: 5, name: 'Shrayansh Tiwari', distance: '16.0 km', runs: 3, longest: '7.0 km', pace: '6:26 /km', elevation: '94 m' },
-  { rank: 6, name: 'Aleena Sabu Koshy', distance: '8.0 km', runs: 1, longest: '8.0 km', pace: '7:19 /km', elevation: '77 m' },
-  { rank: 7, name: 'Gouri M', distance: '8.0 km', runs: 1, longest: '8.0 km', pace: '8:21 /km', elevation: '75 m' },
-  { rank: 8, name: 'Vaibhava KG', distance: '6.8 km', runs: 3, longest: '3.0 km', pace: '7:12 /km', elevation: '73 m' },
-  { rank: 9, name: 'Tushar Sharma', distance: '6.0 km', runs: 1, longest: '6.0 km', pace: '5:45 /km', elevation: '199 m' },
-  { rank: 10, name: 'Naman Mishra', distance: '4.0 km', runs: 2, longest: '2.0 km', pace: '5:52 /km', elevation: '169 m' },
-  { rank: 11, name: 'Ashish Kujur', distance: '2.7 km', runs: 1, longest: '2.7 km', pace: '5:51 /km', elevation: '32 m' },
-  { rank: 12, name: 'Sanjay B', distance: '1.3 km', runs: 3, longest: '1.0 km', pace: '5:08 /km', elevation: '11 m' },
-  { rank: 13, name: 'Adrija Misra', distance: '1.2 km', runs: 1, longest: '1.2 km', pace: '7:56 /km', elevation: '0 m' }
+  { rank: 1, name: 'Karan Beast', distance: '99.6 km', runs: 21, longest: '20.1 km', pace: '4:23 /km', elevation: '721 m' },
+  { rank: 2, name: 'Bindusar Sahoo', distance: '37.3 km', runs: 4, longest: '10.0 km', pace: '5:58 /km', elevation: '663 m' },
+  { rank: 3, name: 'Rudra Patel', distance: '18.0 km', runs: 1, longest: '18.0 km', pace: '6:20 /km', elevation: '115 m' },
+  { rank: 4, name: 'Pradeep Kumar', distance: '16.0 km', runs: 2, longest: '8.0 km', pace: '5:18 /km', elevation: '222 m' },
+  { rank: 5, name: 'Preetam Badagi', distance: '13.7 km', runs: 3, longest: '5.5 km', pace: '6:44 /km', elevation: '168 m' },
+  { rank: 6, name: 'Rohit Mathew Titus', distance: '11.7 km', runs: 2, longest: '6.7 km', pace: '6:28 /km', elevation: '114 m' },
+  { rank: 7, name: 'Abhinav Hatwar', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '6:59 /km', elevation: '20 m' },
+  { rank: 8, name: 'Ayush Singh', distance: '9.1 km', runs: 3, longest: '6.4 km', pace: '6:14 /km', elevation: '90 m' },
+  { rank: 9, name: 'Keerthan Adiga', distance: '5.8 km', runs: 1, longest: '5.8 km', pace: '6:26 /km', elevation: '90 m' },
+  { rank: 10, name: 'Laxman Reddy', distance: '5.8 km', runs: 1, longest: '5.8 km', pace: '6:26 /km', elevation: '90 m' },
+  { rank: 11, name: 'Sanjay B', distance: '5.5 km', runs: 1, longest: '5.5 km', pace: '6:42 /km', elevation: '87 m' },
+  { rank: 12, name: 'Abhinav Joshy', distance: '5.4 km', runs: 1, longest: '5.4 km', pace: '6:51 /km', elevation: '83 m' },
+  { rank: 13, name: 'Shrayansh Tiwari', distance: '5.4 km', runs: 1, longest: '5.4 km', pace: '8:05 /km', elevation: '83 m' },
+  { rank: 14, name: 'NIKHIL VERMA', distance: '5.0 km', runs: 2, longest: '2.9 km', pace: '6:22 /km', elevation: '49 m' },
+  { rank: 15, name: 'Rajvee R S', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '8:09 /km', elevation: '72 m' },
+  { rank: 16, name: 'A.R.M .', distance: '4.2 km', runs: 4, longest: '1.0 km', pace: '3:46 /km', elevation: '43 m' },
+  { rank: 17, name: 'Naman Agarwal', distance: '3.0 km', runs: 1, longest: '3.0 km', pace: '6:15 /km', elevation: '27 m' },
+  { rank: 18, name: 'RAJIV CHAUHAN', distance: '1.0 km', runs: 2, longest: '0.5 km', pace: '5:08 /km', elevation: '4 m' }
 ];
 
 export const galleryItems = [
