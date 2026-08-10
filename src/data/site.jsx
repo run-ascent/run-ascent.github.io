@@ -111,11 +111,50 @@ export const routes = [
 
 export const weeklyArchive = [
   {
-    id: '2026-w31',
-    dateLabel: '27 July – 02 August',
+    id: '2026-w32',
+    dateLabel: '03 August – 09 August',
     isCurrent: true,
     stats: [
-      { value: '60', label: 'Club Runners' },
+      { value: '68', label: 'Club Runners' },
+      { value: '453.6 KM', label: 'Moved Together' },
+      { value: '3,914 M', label: 'Climbed' },
+    ],
+    board: [
+      { rank: 1, name: 'Karan Beast', distance: '59.7 km', runs: 21, longest: '10.0 km', pace: '4:27 /km', elevation: '207 m' },
+      { rank: 2, name: 'Jobal Joseph', distance: '39.8 km', runs: 6, longest: '11.3 km', pace: '5:50 /km', elevation: '314 m' },
+      { rank: 3, name: 'Preetam Badagi', distance: '34.4 km', runs: 9, longest: '10.1 km', pace: '5:49 /km', elevation: '410 m' },
+      { rank: 4, name: 'Bindusar Sahoo', distance: '33.3 km', runs: 5, longest: '10.0 km', pace: '5:22 /km', elevation: '429 m' },
+      { rank: 5, name: 'Ayush Singh', distance: '31.8 km', runs: 4, longest: '10.5 km', pace: '6:26 /km', elevation: '270 m' },
+      { rank: 6, name: 'Shrayansh Tiwari', distance: '20.9 km', runs: 6, longest: '10.3 km', pace: '5:34 /km', elevation: '192 m' },
+      { rank: 7, name: 'Nigam Jyoti Panigrahi', distance: '20.6 km', runs: 3, longest: '11.0 km', pace: '6:08 /km', elevation: '214 m' },
+      { rank: 8, name: 'Keerthan Adiga', distance: '20.6 km', runs: 6, longest: '5.1 km', pace: '5:44 /km', elevation: '253 m' },
+      { rank: 9, name: 'PRIYANSHU TIWARI', distance: '17.5 km', runs: 4, longest: '10.2 km', pace: '7:02 /km', elevation: '136 m' },
+      { rank: 10, name: 'Sanjay B', distance: '17.3 km', runs: 3, longest: '10.2 km', pace: '6:09 /km', elevation: '154 m' },
+      { rank: 11, name: 'HRIDYA HAREESH', distance: '16.3 km', runs: 2, longest: '10.3 km', pace: '7:14 /km', elevation: '140 m' },
+      { rank: 12, name: 'Rohit Mathew Titus', distance: '16.0 km', runs: 2, longest: '10.0 km', pace: '5:46 /km', elevation: '130 m' },
+      { rank: 13, name: 'Aleena Sabu Koshy', distance: '15.3 km', runs: 2, longest: '10.2 km', pace: '6:50 /km', elevation: '125 m' },
+      { rank: 14, name: 'Rajvee R S', distance: '13.4 km', runs: 2, longest: '10.3 km', pace: '7:22 /km', elevation: '98 m' },
+      { rank: 15, name: 'gowri vinod', distance: '10.4 km', runs: 1, longest: '10.4 km', pace: '7:28 /km', elevation: '82 m' },
+      { rank: 16, name: 'Gouri M', distance: '10.3 km', runs: 1, longest: '10.3 km', pace: '7:48 /km', elevation: '58 m' },
+      { rank: 17, name: 'Vaibhava KG', distance: '10.3 km', runs: 1, longest: '10.3 km', pace: '7:27 /km', elevation: '58 m' },
+      { rank: 18, name: 'BHUVI 027', distance: '10.1 km', runs: 1, longest: '10.1 km', pace: '5:13 /km', elevation: '58 m' },
+      { rank: 19, name: 'Vartika S', distance: '10.1 km', runs: 1, longest: '10.1 km', pace: '9:05 /km', elevation: '73 m' },
+      { rank: 20, name: 'Hrithik Kumar', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '5:33 /km', elevation: '58 m' },
+      { rank: 21, name: 'Rudra Patel', distance: '8.0 km', runs: 1, longest: '8.0 km', pace: '5:58 /km', elevation: '41 m' },
+      { rank: 22, name: 'Pradeep Kumar', distance: '7.0 km', runs: 2, longest: '5.0 km', pace: '5:27 /km', elevation: '61 m' },
+      { rank: 23, name: 'Riswan .', distance: '6.8 km', runs: 1, longest: '6.8 km', pace: '6:47 /km', elevation: '187 m' },
+      { rank: 24, name: 'Abhinav Joshy', distance: '5.6 km', runs: 3, longest: '5.0 km', pace: '5:32 /km', elevation: '60 m' },
+      { rank: 25, name: 'Tushar Sharma', distance: '4.0 km', runs: 1, longest: '4.0 km', pace: '6:01 /km', elevation: '44 m' },
+      { rank: 26, name: 'A.R.M .', distance: '2.1 km', runs: 2, longest: '1.1 km', pace: '3:43 /km', elevation: '22 m' },
+      { rank: 27, name: 'Adrija Misra', distance: '2.0 km', runs: 1, longest: '2.0 km', pace: '7:28 /km', elevation: '40 m' }
+    ]
+  },
+  {
+    id: '2026-w31',
+    dateLabel: '27 July – 02 August',
+    isCurrent: false,
+    stats: [
+      { value: '68', label: 'Club Runners' },
       { value: '261.5 KM', label: 'Moved Together' },
       { value: '2,741 M', label: 'Climbed' },
     ],
@@ -145,7 +184,7 @@ export const weeklyArchive = [
     dateLabel: '13 July – 19 July',
     isCurrent: false,
     stats: [
-      { value: '60', label: 'Club Runners' },
+      { value: '68', label: 'Club Runners' },
       { value: '166.6 KM', label: 'Moved Together' },
       { value: '1,727 M', label: 'Climbed' },
     ],
@@ -170,7 +209,7 @@ export const weeklyArchive = [
     dateLabel: '06 July – 12 July',
     isCurrent: false,
     stats: [
-      { value: '60', label: 'Club Runners' },
+      { value: '68', label: 'Club Runners' },
       { value: '233.8 KM', label: 'Moved Together' },
       { value: '1,581 M', label: 'Climbed' },
     ],
@@ -289,11 +328,11 @@ export const storiesList = [
       initials: 'PR'
     },
     image: 'images/First-Ascent.jpeg',
-    description: 'How a simple mid-week warmup run sparked a student-led community of 57 active runners moving and climbing the Western Ghats foothills together.',
+    description: 'How a simple mid-week warmup run sparked a student-led community of 68 active runners moving and climbing the Western Ghats foothills together.',
     content: (
       <>
         <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 57 runners.
+          What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 68 runners.
         </p>
         <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
           ASCENT was founded on a simple realization: student life is busy, but showing up together makes consistent training effortless. By eliminating pace pressure and focusing entirely on collective distance and consistency, we have created a space where elite sprinters and beginner joggers run side-by-side. Our goal remains unchanged: keeping our community moving, one ascent at a time.</p>
