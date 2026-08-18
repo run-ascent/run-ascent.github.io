@@ -111,9 +111,46 @@ export const routes = [
 
 export const weeklyArchive = [
   {
+    id: '2026-w33',
+    dateLabel: '10 August – 16 August',
+    isCurrent: true,
+    stats: [
+      { value: '68', label: 'Club Runners' },
+      { value: '368.7 KM', label: 'Moved Together' },
+      { value: '3,480 M', label: 'Climbed' },
+    ],
+    board: [
+      { rank: 1, name: 'Karan Beast', distance: '53.6 km', runs: 15, longest: '10.0 km', pace: '4:56 /km', elevation: '280 m' },
+      { rank: 2, name: 'Jobal Joseph', distance: '53.4 km', runs: 4, longest: '21.8 km', pace: '6:27 /km', elevation: '185 m' },
+      { rank: 3, name: 'Bindusar Sahoo', distance: '40.0 km', runs: 5, longest: '15.2 km', pace: '6:05 /km', elevation: '655 m' },
+      { rank: 4, name: 'Pranav Nedungome', distance: '32.5 km', runs: 4, longest: '15.0 km', pace: '6:47 /km', elevation: '325 m' },
+      { rank: 5, name: 'Shrayansh Tiwari', distance: '29.6 km', runs: 5, longest: '15.1 km', pace: '6:35 /km', elevation: '314 m' },
+      { rank: 6, name: 'Abhinav Joshy', distance: '20.1 km', runs: 4, longest: '9.7 km', pace: '5:45 /km', elevation: '204 m' },
+      { rank: 7, name: 'Keerthan Adiga', distance: '15.2 km', runs: 3, longest: '7.0 km', pace: '6:06 /km', elevation: '189 m' },
+      { rank: 8, name: 'Hrithik Kumar', distance: '14.3 km', runs: 3, longest: '6.1 km', pace: '6:39 /km', elevation: '193 m' },
+      { rank: 9, name: 'Rohit Mathew Titus', distance: '11.0 km', runs: 2, longest: '6.0 km', pace: '7:22 /km', elevation: '102 m' },
+      { rank: 10, name: 'Aswin Das', distance: '10.2 km', runs: 2, longest: '5.5 km', pace: '5:33 /km', elevation: '124 m' },
+      { rank: 11, name: 'A.R.M .', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '4:57 /km', elevation: '74 m' },
+      { rank: 12, name: 'Rudra Patel', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '5:44 /km', elevation: '68 m' },
+      { rank: 13, name: 'Abhinav Hatwar', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '8:10 /km', elevation: '57 m' },
+      { rank: 14, name: 'Anzil Muhammed K', distance: '10.0 km', runs: 1, longest: '10.0 km', pace: '5:36 /km', elevation: '103 m' },
+      { rank: 15, name: 'sanjay b', distance: '9.1 km', runs: 2, longest: '6.0 km', pace: '6:38 /km', elevation: '94 m' },
+      { rank: 16, name: 'Naman Agarwal', distance: '7.5 km', runs: 2, longest: '5.5 km', pace: '6:18 /km', elevation: '79 m' },
+      { rank: 17, name: 'Pradeep Kumar', distance: '5.5 km', runs: 1, longest: '5.5 km', pace: '5:08 /km', elevation: '169 m' },
+      { rank: 18, name: 'Vyshnavi Chamarty', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '8:01 /km', elevation: '77 m' },
+      { rank: 19, name: 'SAROJ MEENA', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '4:56 /km', elevation: '52 m' },
+      { rank: 20, name: 'Aleena Sabu Koshy', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '8:13 /km', elevation: '48 m' },
+      { rank: 21, name: 'Mayuri Datta', distance: '4.3 km', runs: 2, longest: '2.2 km', pace: '7:27 /km', elevation: '20 m' },
+      { rank: 22, name: 'PRIYANSHU TIWARI', distance: '2.2 km', runs: 2, longest: '1.7 km', pace: '7:05 /km', elevation: '26 m' },
+      { rank: 23, name: 'Vardhan Rathod', distance: '2.1 km', runs: 1, longest: '2.1 km', pace: '6:42 /km', elevation: '4 m' },
+      { rank: 24, name: 'Kushal Agrawal', distance: '2.1 km', runs: 1, longest: '2.1 km', pace: '4:59 /km', elevation: '26 m' },
+      { rank: 25, name: 'Ayush Singh', distance: '1.0 km', runs: 1, longest: '1.0 km', pace: '4:51 /km', elevation: '12 m' }
+    ]
+  },
+  {
     id: '2026-w32',
     dateLabel: '03 August – 09 August',
-    isCurrent: true,
+    isCurrent: false,
     stats: [
       { value: '68', label: 'Club Runners' },
       { value: '453.6 KM', label: 'Moved Together' },
