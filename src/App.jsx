@@ -915,9 +915,9 @@ function TrainingPage() {
         </div>
 
         {/* Full Playlist Callout */}
-        <div style={{ marginTop: '48px', padding: '32px 24px', background: 'var(--charcoal)', borderRadius: '8px', textAlign: 'center', color: '#fff' }}>
-          <h3 style={{ margin: '0 0 8px 0', color: 'var(--orange)', fontSize: '1.5rem' }}>Full Jack Daniels Running Lectures Playlist</h3>
-          <p style={{ margin: '0 0 20px 0', opacity: 0.8, fontSize: '1rem', maxWidth: '640px', marginLeft: 'auto', marginRight: 'auto' }}>
+        <div style={{ marginTop: '48px', padding: '36px 24px', background: 'var(--forest)', borderRadius: '8px', textAlign: 'center', color: 'var(--paper)', border: '1px solid var(--line-dark)' }}>
+          <h3 style={{ margin: '0 0 10px 0', color: 'var(--orange)', fontSize: '1.6rem' }}>Full Jack Daniels Running Lectures Playlist</h3>
+          <p style={{ margin: '0 0 24px 0', opacity: 0.95, fontSize: '1.05rem', color: 'var(--paper)', maxWidth: '640px', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.6' }}>
             Access all 43+ video lectures covering altitude training, lactate threshold, stride mechanics, and race-day hydration.
           </p>
           <a
