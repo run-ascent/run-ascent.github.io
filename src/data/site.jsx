@@ -426,3 +426,103 @@ export const eventGalleries = [
   }
 ];
 
+export const trainingPlaylistUrl = 'https://youtube.com/playlist?list=PLnAKD1Q8PRQ-lo2fMXbYdLyaJUHznbfvG';
+
+export const trainingLectures = [
+  {
+    id: 'veAQ73OJdwY',
+    title: 'Easy Running Benefits',
+    category: 'EASY RUNNING',
+    tag: 'Zone 2 / Aerobic Base',
+    intensity: '65–79% HR Max',
+    summary: 'Build your capillary density, mitochondrial function, and heart stroke volume with zero cellular stress.'
+  },
+  {
+    id: 'dxJVtPT6rHo',
+    title: 'Threshold Training',
+    category: 'THRESHOLD',
+    tag: 'Lactate Threshold / Tempo',
+    intensity: '88–92% HR Max',
+    summary: 'Improve your body ability to clear lactate at sustained comfortably hard paces during tempo runs.'
+  },
+  {
+    id: '7dQEwJhHWXk',
+    title: 'Interval Training',
+    category: 'INTERVAL',
+    tag: 'VO2 Max / Aerobic Power',
+    intensity: '98–100% HR Max',
+    summary: '3 to 5-minute hard repeats designed to expand your aerobic ceiling and maximum oxygen uptake.'
+  },
+  {
+    id: 'BGQKlSU4HQM',
+    title: 'Repetition Training',
+    category: 'REPETITION',
+    tag: 'Speed & Economy',
+    intensity: 'Fast & Relaxed',
+    summary: 'Short fast work with long rest periods to refine stride mechanics, turn-over, and neuromuscular efficiency.'
+  },
+  {
+    id: '5TWzC0KA6uo',
+    title: 'Rest & Recovery Days',
+    category: 'RECOVERY',
+    tag: 'Adaptation Phase',
+    intensity: 'Zero Effort',
+    summary: 'Why muscle repair and physiological adaptation happen on rest days—not during the workout itself.'
+  },
+  {
+    id: 'yHJd2e5qbFo',
+    title: 'Easy Pace Pacing',
+    category: 'PACING',
+    tag: 'Discipline & Pacing',
+    intensity: 'Conversational Pace',
+    summary: 'Why running too fast on easy days ruins your recovery and degrades performance on hard workout days.'
+  }
+];
+
+export const strengthPillars = [
+  {
+    title: 'Running Economy (+2% to +8%)',
+    subtitle: 'Sports Science (ACSM / BJSM)',
+    description: 'Systematic research shows 6–14 weeks of heavy resistance and plyometric training improves running economy by up to 8% without adding unwanted mass.'
+  },
+  {
+    title: 'Tendon Stiffness & Injury Prevention',
+    subtitle: 'Tissue Capacity',
+    description: 'Strengthening the kinetic chain (glutes, hips, quads, calves) increases tendon stiffness and bone density to absorb impact forces on hilly Vithura terrain.'
+  },
+  {
+    title: 'Compound Strength Protocol',
+    subtitle: 'Key Exercises',
+    description: 'Focus on multi-joint movements: Squats, Romanian Deadlifts, Bulgarian Split Squats, Single-Leg Calf Raises, and Core anti-rotation.'
+  },
+  {
+    title: 'Frequency & Programming',
+    subtitle: '2–3 Sessions / Week',
+    description: 'ACSM guidelines recommend 2–3 short, focused strength sessions per week, scheduled after key run workouts or on cross-training days.'
+  }
+];
+
+export const nutritionPillars = [
+  {
+    title: 'Energy Availability',
+    subtitle: 'Fueling Expenditure',
+    description: 'Matching caloric intake to daily running volume prevents Low Energy Availability (LEA), chronic fatigue, and stress fractures.'
+  },
+  {
+    title: 'Carbohydrate Periodization',
+    subtitle: 'Primary Muscle Fuel',
+    description: 'Carbs replenish glycogen stores. Periodize intake—lower on easy recovery days, higher before hard intervals and long weekend runs.'
+  },
+  {
+    title: 'Protein Timing & Dose',
+    subtitle: '0.25–0.55 g/kg per Dose',
+    description: 'Distribute 20–40g of protein across 3–4 daily meals to maximize muscle tissue repair and muscle protein synthesis.'
+  },
+  {
+    title: 'Hydration & Electrolytes',
+    subtitle: 'Fluid Balance in Heat',
+    description: 'Water is ideal for short runs. For efforts over 60 mins in tropical climate, consume electrolytes (sodium & potassium) to maintain fluid balance.'
+  }
+];
+
+

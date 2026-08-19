@@ -9,7 +9,11 @@ import {
   weeklyArchive,
   routes,
   siteConfig,
-  storiesList
+  storiesList,
+  trainingLectures,
+  strengthPillars,
+  nutritionPillars,
+  trainingPlaylistUrl
 } from './data/site.jsx';
 import stravaCache from './data/strava-cache.json';
 import RouteVisualizer from './components/RouteVisualizer.jsx';
@@ -42,6 +46,7 @@ function Header() {
         <Link to="/#runs" onClick={() => setIsOpen(false)}>Runs</Link>
         <NavLink to="/routes" onClick={() => setIsOpen(false)}>Routes</NavLink>
         <NavLink to="/pulse" onClick={() => setIsOpen(false)}>Pulse</NavLink>
+        <NavLink to="/training" onClick={() => setIsOpen(false)}>Training</NavLink>
         <NavLink to="/stories" onClick={() => setIsOpen(false)}>Stories</NavLink>
         <NavLink to="/join" onClick={() => setIsOpen(false)}>Join</NavLink>
       </nav>
@@ -848,6 +853,134 @@ function PageHero({ kicker, title, copy, type }) {
   );
 }
 
+function TrainingPage() {
+  return (
+    <main className="page">
+      <PageHero
+        kicker="Training Philosophy"
+        title="TRAIN SMART. RUN SUSTAINABLE."
+        copy="Evidence-based endurance principles, Jack Daniels workout intensities, ACSM strength protocols, and ISSN sports nutrition for long-term athletic health and performance."
+        type="routes"
+      />
+
+      {/* Sub-section 1: Different Types of Training */}
+      <section className="paper-section" style={{ borderTop: '1px solid var(--line-light)' }}>
+        <div className="section-heading" style={{ marginBottom: '40px' }}>
+          <p className="section-kicker">Jack Daniels Lectures</p>
+          <h2>DIFFERENT TYPES OF TRAINING</h2>
+          <p style={{ maxWidth: '720px', margin: '12px 0 0 0', opacity: 0.85, fontSize: '1.05rem' }}>
+            Structured endurance training relies on targeted workout intensities—from aerobic foundation building to VO2 Max expansion. Explore the core training zones explained by world-renowned coach Dr. Jack Daniels.
+          </p>
+        </div>
+
+        <div className="training-video-grid">
+          {trainingLectures.map((lecture) => (
+            <article key={lecture.id} className="training-card">
+              <div className="video-embed-container">
+                <iframe
+                  src={`https://www.youtube.com/embed/${lecture.id}`}
+                  title={lecture.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="training-card-content">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <span className="runs-card-badge" style={{ background: 'var(--forest)', color: '#fff', fontSize: '0.75rem' }}>
+                    {lecture.category}
+                  </span>
+                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.85rem', opacity: 0.7 }}>
+                    {lecture.intensity}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.4rem', margin: '0 0 8px 0', color: 'var(--ink)' }}>{lecture.title}</h3>
+                <p style={{ fontSize: '0.95rem', opacity: 0.85, lineHeight: '1.6', margin: '0 0 16px 0' }}>{lecture.summary}</p>
+                <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.8rem', color: 'var(--orange)', fontWeight: 'bold' }}>
+                    {lecture.tag}
+                  </span>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${lecture.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-link"
+                    style={{ fontSize: '0.85rem' }}
+                  >
+                    Watch on YouTube ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Full Playlist Callout */}
+        <div style={{ marginTop: '48px', padding: '32px 24px', background: 'var(--charcoal)', borderRadius: '8px', textAlign: 'center', color: '#fff' }}>
+          <h3 style={{ margin: '0 0 8px 0', color: 'var(--orange)', fontSize: '1.5rem' }}>Full Jack Daniels Running Lectures Playlist</h3>
+          <p style={{ margin: '0 0 20px 0', opacity: 0.8, fontSize: '1rem', maxWidth: '640px', marginLeft: 'auto', marginRight: 'auto' }}>
+            Access all 43+ video lectures covering altitude training, lactate threshold, stride mechanics, and race-day hydration.
+          </p>
+          <a
+            href={trainingPlaylistUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button primary"
+            style={{ display: 'inline-block', textDecoration: 'none' }}
+          >
+            EXPLORE FULL PLAYLIST ON YOUTUBE (43+ VIDEOS) ↗
+          </a>
+        </div>
+      </section>
+
+      {/* Sub-section 2: Strength Training for Runners */}
+      <section className="dark-section" style={{ borderTop: '1px solid var(--line-dark)' }}>
+        <div className="section-heading" style={{ marginBottom: '40px' }}>
+          <p className="section-kicker">Sports Science (ACSM & BJSM)</p>
+          <h2>STRENGTH TRAINING FOR RUNNERS</h2>
+          <p style={{ maxWidth: '720px', margin: '12px 0 0 0', opacity: 0.8, fontSize: '1.05rem', color: 'var(--paper)' }}>
+            Peer-reviewed research from the American College of Sports Medicine (ACSM) and British Journal of Sports Medicine (BJSM) proves that heavy resistance and plyometric training significantly enhance running economy and tissue durability.
+          </p>
+        </div>
+
+        <div className="pillar-grid">
+          {strengthPillars.map((pillar, idx) => (
+            <article key={idx} className="pillar-card dark-pillar">
+              <div style={{ fontFamily: "'DM Mono', monospace", color: 'var(--orange)', fontSize: '0.85rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                {pillar.subtitle}
+              </div>
+              <h3 style={{ fontSize: '1.3rem', margin: '0 0 12px 0', color: 'var(--paper)' }}>{pillar.title}</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.8, lineHeight: '1.6', margin: 0 }}>{pillar.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Sub-section 3: Endurance Nutrition & Hydration */}
+      <section className="paper-section" style={{ borderTop: '1px solid var(--line-light)' }}>
+        <div className="section-heading" style={{ marginBottom: '40px' }}>
+          <p className="section-kicker">Fueling (ACSM & ISSN Guidelines)</p>
+          <h2>ENDURANCE NUTRITION & HYDRATION</h2>
+          <p style={{ maxWidth: '720px', margin: '12px 0 0 0', opacity: 0.85, fontSize: '1.05rem' }}>
+            International Society of Sports Nutrition (ISSN) guidelines emphasize a food-first, periodized strategy to prevent under-fueling and optimize muscle protein synthesis.
+          </p>
+        </div>
+
+        <div className="pillar-grid">
+          {nutritionPillars.map((pillar, idx) => (
+            <article key={idx} className="pillar-card light-pillar">
+              <div style={{ fontFamily: "'DM Mono', monospace", color: 'var(--forest)', fontSize: '0.85rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 'bold' }}>
+                {pillar.subtitle}
+              </div>
+              <h3 style={{ fontSize: '1.3rem', margin: '0 0 12px 0', color: 'var(--ink)' }}>{pillar.title}</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.85, lineHeight: '1.6', margin: 0 }}>{pillar.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
 function Home() {
   return (
     <main>
@@ -911,10 +1044,11 @@ export default function App() {
           <PulsePreview full />
         </main>
       ) : null}
+      {path === '/training' ? <TrainingPage /> : null}
       {path === '/join' ? <JoinPage /> : null}
       {path === '/stories' ? <StoriesPage /> : null}
       {isStoriesSubpage ? <BlogPostPage id={storiesSubpageId} /> : null}
-      {!['/routes', '/pulse', '/stories', '/join'].includes(path) && !isStoriesSubpage ? <Home /> : null}
+      {!['/routes', '/pulse', '/training', '/stories', '/join'].includes(path) && !isStoriesSubpage ? <Home /> : null}
       <Footer />
     </>
   );
