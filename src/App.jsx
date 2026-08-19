@@ -858,7 +858,7 @@ function TrainingPage() {
     <main className="page">
       <PageHero
         kicker="Training Philosophy"
-        title="TRAIN SMART. RUN SUSTAINABLE."
+        title="KNOW YOUR TRAINING."
         copy="Evidence-based endurance principles, Jack Daniels workout intensities, ACSM strength protocols, and ISSN sports nutrition for long-term athletic health and performance."
         type="routes"
       />
