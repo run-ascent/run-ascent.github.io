@@ -111,11 +111,49 @@ export const routes = [
 
 export const weeklyArchive = [
   {
-    id: '2026-w34',
-    dateLabel: '17 August – 23 August',
+    id: '2026-w35',
+    dateLabel: '24 August – 30 August',
     isCurrent: true,
     stats: [
-      { value: '68', label: 'Club Runners' },
+      { value: '75+', label: 'Club Runners' },
+      { value: '436.6 KM', label: 'Moved Together' },
+      { value: '4,627 M', label: 'Climbed' },
+    ],
+    board: [
+      { rank: 1, name: 'Karan Beast', distance: '102.3 km', runs: 21, longest: '20.0 km', pace: '4:50 /km', elevation: '1,018 m' },
+      { rank: 2, name: 'Bindusar Sahoo', distance: '60.7 km', runs: 4, longest: '30.0 km', pace: '6:15 /km', elevation: '857 m' },
+      { rank: 3, name: 'Pranav Nedungome', distance: '43.9 km', runs: 5, longest: '15.3 km', pace: '6:19 /km', elevation: '364 m' },
+      { rank: 4, name: 'Shrayansh Tiwari', distance: '30.2 km', runs: 4, longest: '14.0 km', pace: '6:12 /km', elevation: '326 m' },
+      { rank: 5, name: 'Preetam Badagi', distance: '20.2 km', runs: 2, longest: '14.1 km', pace: '6:11 /km', elevation: '190 m' },
+      { rank: 6, name: 'Abhinav Joshy', distance: '19.0 km', runs: 2, longest: '14.0 km', pace: '6:38 /km', elevation: '211 m' },
+      { rank: 7, name: 'Kushal Agrawal', distance: '18.5 km', runs: 4, longest: '7.2 km', pace: '5:41 /km', elevation: '176 m' },
+      { rank: 8, name: 'Aleena Sabu Koshy', distance: '15.7 km', runs: 2, longest: '9.6 km', pace: '7:27 /km', elevation: '153 m' },
+      { rank: 9, name: 'SAROJ MEENA', distance: '15.0 km', runs: 1, longest: '15.0 km', pace: '5:27 /km', elevation: '152 m' },
+      { rank: 10, name: 'Pradeep Kumar', distance: '14.6 km', runs: 2, longest: '7.3 km', pace: '5:35 /km', elevation: '146 m' },
+      { rank: 11, name: 'Rohit Mathew Titus', distance: '10.2 km', runs: 1, longest: '10.2 km', pace: '7:01 /km', elevation: '102 m' },
+      { rank: 12, name: 'Rudra Patel', distance: '9.6 km', runs: 2, longest: '7.1 km', pace: '5:31 /km', elevation: '49 m' },
+      { rank: 13, name: 'Dhruv T', distance: '8.4 km', runs: 2, longest: '5.3 km', pace: '5:27 /km', elevation: '178 m' },
+      { rank: 14, name: 'Mayuri Datta', distance: '7.6 km', runs: 3, longest: '5.0 km', pace: '8:34 /km', elevation: '31 m' },
+      { rank: 15, name: 'Debojit K', distance: '7.0 km', runs: 2, longest: '5.5 km', pace: '6:16 /km', elevation: '124 m' },
+      { rank: 16, name: 'PRIYANSHU TIWARI', distance: '7.0 km', runs: 2, longest: '4.4 km', pace: '7:50 /km', elevation: '0 m' },
+      { rank: 17, name: 'Gouri M', distance: '6.0 km', runs: 1, longest: '6.0 km', pace: '7:56 /km', elevation: '61 m' },
+      { rank: 18, name: 'Vyshnavi Chamarty', distance: '6.0 km', runs: 1, longest: '6.0 km', pace: '6:53 /km', elevation: '95 m' },
+      { rank: 19, name: 'Anzil Muhammed K', distance: '5.5 km', runs: 1, longest: '5.5 km', pace: '5:40 /km', elevation: '56 m' },
+      { rank: 20, name: 'Aditya Chavan', distance: '5.5 km', runs: 1, longest: '5.5 km', pace: '6:14 /km', elevation: '90 m' },
+      { rank: 21, name: 'Keerthan Adiga', distance: '5.1 km', runs: 1, longest: '5.1 km', pace: '5:33 /km', elevation: '58 m' },
+      { rank: 22, name: 'Aashish Chandrawat', distance: '5.1 km', runs: 2, longest: '3.8 km', pace: '5:23 /km', elevation: '51 m' },
+      { rank: 23, name: 'Ashish Kujur', distance: '5.0 km', runs: 1, longest: '5.0 km', pace: '6:22 /km', elevation: '50 m' },
+      { rank: 24, name: 'Naman Agarwal', distance: '4.0 km', runs: 4, longest: '2.0 km', pace: '6:06 /km', elevation: '42 m' },
+      { rank: 25, name: 'Adrija Misra', distance: '3.0 km', runs: 1, longest: '3.0 km', pace: '8:42 /km', elevation: '33 m' },
+      { rank: 26, name: 'Vardhan Rathod', distance: '1.5 km', runs: 1, longest: '1.5 km', pace: '6:47 /km', elevation: '14 m' }
+    ]
+  },
+  {
+    id: '2026-w34',
+    dateLabel: '17 August – 23 August',
+    isCurrent: false,
+    stats: [
+      { value: '75+', label: 'Club Runners' },
       { value: '400.8 KM', label: 'Moved Together' },
       { value: '3,892 M', label: 'Climbed' },
     ],
@@ -151,7 +189,7 @@ export const weeklyArchive = [
     dateLabel: '10 August – 16 August',
     isCurrent: false,
     stats: [
-      { value: '68', label: 'Club Runners' },
+      { value: '75+', label: 'Club Runners' },
       { value: '368.7 KM', label: 'Moved Together' },
       { value: '3,480 M', label: 'Climbed' },
     ],
@@ -188,7 +226,7 @@ export const weeklyArchive = [
     dateLabel: '03 August – 09 August',
     isCurrent: false,
     stats: [
-      { value: '68', label: 'Club Runners' },
+      { value: '75+', label: 'Club Runners' },
       { value: '453.6 KM', label: 'Moved Together' },
       { value: '3,914 M', label: 'Climbed' },
     ],
@@ -227,7 +265,7 @@ export const weeklyArchive = [
     dateLabel: '27 July – 02 August',
     isCurrent: false,
     stats: [
-      { value: '68', label: 'Club Runners' },
+      { value: '75+', label: 'Club Runners' },
       { value: '261.5 KM', label: 'Moved Together' },
       { value: '2,741 M', label: 'Climbed' },
     ],
@@ -257,7 +295,7 @@ export const weeklyArchive = [
     dateLabel: '13 July – 19 July',
     isCurrent: false,
     stats: [
-      { value: '68', label: 'Club Runners' },
+      { value: '75+', label: 'Club Runners' },
       { value: '166.6 KM', label: 'Moved Together' },
       { value: '1,727 M', label: 'Climbed' },
     ],
@@ -282,7 +320,7 @@ export const weeklyArchive = [
     dateLabel: '06 July – 12 July',
     isCurrent: false,
     stats: [
-      { value: '68', label: 'Club Runners' },
+      { value: '75+', label: 'Club Runners' },
       { value: '233.8 KM', label: 'Moved Together' },
       { value: '1,581 M', label: 'Climbed' },
     ],
@@ -401,11 +439,11 @@ export const storiesList = [
       initials: 'PR'
     },
     image: 'images/First-Ascent.jpeg',
-    description: 'How a simple mid-week warmup run sparked a student-led community of 68 active runners moving and climbing the Western Ghats foothills together.',
+    description: 'How a simple mid-week warmup run sparked a student-led community of 75+ active runners moving and climbing the Western Ghats foothills together.',
     content: (
       <>
         <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
-          What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 68 runners.
+          What started as a few friends coordinating to meet for a sunrise run outside Anamudi Hostel has grown into a structured, active group of 75+ runners.
         </p>
         <p style={{ marginBottom: '16px', fontSize: '1.05rem', lineHeight: '1.8' }}>
           ASCENT was founded on a simple realization: student life is busy, but showing up together makes consistent training effortless. By eliminating pace pressure and focusing entirely on collective distance and consistency, we have created a space where elite sprinters and beginner joggers run side-by-side. Our goal remains unchanged: keeping our community moving, one ascent at a time.</p>

@@ -1,13 +1,13 @@
 {
   "pulseStats": [
-    { "value": "68", "label": "Club Runners" },
-    { "value": "400.8 KM", "label": "Moved Together" },
-    { "value": "3,892 M", "label": "Climbed" }
+    { "value": "75+", "label": "Club Runners" },
+    { "value": "436.6 KM", "label": "Moved Together" },
+    { "value": "4,627 M", "label": "Climbed" }
   ],
   "consistencyBoard": [
-    { "name": "Jobal Joseph", "runs": 3, "distance": "52.5 km" },
-    { "name": "Karan Beast", "runs": 9, "distance": "42.8 km" },
-    { "name": "Preetam Badagi", "runs": 4, "distance": "34.8 km" }
+    { "name": "Karan Beast", "runs": 21, "distance": "102.3 km" },
+    { "name": "Bindusar Sahoo", "runs": 4, "distance": "60.7 km" },
+    { "name": "Pranav Nedungome", "runs": 5, "distance": "43.9 km" }
   ],
   "isLive": false
 }

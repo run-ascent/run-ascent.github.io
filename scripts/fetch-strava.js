@@ -9,14 +9,14 @@ const cachePath = path.join(__dirname, '../src/data/strava-cache.json');
 
 const fallbackData = {
   pulseStats: [
-    { value: '28', label: 'Active Climbers' },
-    { value: '163.4 KM', label: 'Moved Together' },
-    { value: '2,140 M', label: 'Climbed' },
+    { value: '75+', label: 'Club Runners' },
+    { value: '436.6 KM', label: 'Moved Together' },
+    { value: '4,627 M', label: 'Climbed' },
   ],
   consistencyBoard: [
-    { name: 'Ananya', days: '4 DAYS' },
-    { name: 'Aditya', days: '3 DAYS' },
-    { name: 'Nandana', days: '3 DAYS' },
+    { name: 'Karan Beast', days: '21 RUNS' },
+    { name: 'Bindusar Sahoo', days: '4 RUNS' },
+    { name: 'Pranav Nedungome', days: '5 RUNS' },
   ],
   isLive: false
 };
